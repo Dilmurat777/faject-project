@@ -1,0 +1,72 @@
+{
+  "header": {
+    "nav-text1": "Portfolio",
+    "nav-text2": "About us",
+    "btn-text": "Order a project"
+  },
+  "form": {
+    "title": "Apply",
+    "placeholder1": "Enter your name",
+    "placeholder2": "Your phone number",
+    "placeholder3": "Web site development",
+    "placeholder4": "Comments",
+    "ChooseService": "Choose a service",
+    "textForm1": "Website development",
+    "textForm2": "Bot development",
+    "textForm3": "Mobile Development",
+    "textForm4": "Contextual advertising",
+    "send": "Send"
+  },
+  "main": {
+    "text": "We help companies create services and websites for people. We make business comfortable and convenient in communicating with customers in a way that is profitable.",
+    "btn-text": "Order a project"
+  },
+  "ticker": {
+    "text1": "Website development",
+    "text2": "Bot development",
+    "text3": "Mobile Development",
+    "text4": "Contextual advertising"
+  },
+  "services": {
+    "service1": "Website development",
+    "service2": "Bot development",
+    "service3": "Mobile Development",
+    "service4": "Contextual advertising",
+    "title": "Services",
+    "text1": "Service design based on analytics, metrics and user experience - a product-based approach for creating attractive and effective solutions.",
+    "text2": "An attractive design seems more user-friendly to users. And vice versa - user-friendly design attracts and retains people. Our design helps build identity and market leadership."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "desc": "Creating branding for a depo startup is the process of developing a unique and memorable logo, corporate identity and other brand elements that will help distinguish the project in the market and attract the attention of potential customers."
+  },
+  "about": {
+    "title": "About us",
+    "text1": "For almost 3 years at Faject, we've been designing and developing for companies around the world. We help companies create services and websites for people. We make business comfortable and convenient in communicating with customers in a way that is profitable.",
+    "text2": "In our work, we actively work with the customer to ensure the best possible outcome and co-creation",
+    "text3": "In order to optimize all processes and save the client's money at the initial stages of development, we use non-ironic networks. For example, we speed up the selection of the illustration style several times so that the customer can choose what he or she prefers.",
+    "text4": "During the specification phase, we study your company's needs and goals. We offer the best solutions, saving the customer money and eliminating unnecessary functions. Our main task is to provide convenient functionality and an effective marketing tool for your business."
+  },
+  "counter": {
+    "text1": "Projects",
+    "text2": "A person visits sites and services developed by us daily",
+    "text3": "Professionals in an international team"
+  },
+  "footer": {
+    "text1": "We are here!",
+    "text2": "Terms & Conditions",
+    "text3": "Privacy Policy"
+  },
+  "policy": {
+    "title": "Documentation",
+    "text-btn1": "Terms & Conditions",
+    "text-btn2": "Privacy Policy",
+    "text-back": "Back",
+    "text1": "Terms & Conditions This Agreement is concluded between ___________ (hereinafter referred to as the Owner) and any person who, upon acceptance of the terms and conditions of this Agreement, becomes a user of the website located on the Internet at the address: __________________ (hereinafter referred to as the Site), hereinafter referred to as the User, together referred to as the Parties, and separately referred to as the Party. In accordance with Article 435 of the Civil Code of the Russian Federation, this User Agreement is recognized as an offer. Registration and User Data In accordance with Article 438 of the Civil Code of the Russian Federation, the fact of registration on the Website shall be considered as unconditional acceptance of the terms of this Agreement. This Agreement, concluded by acceptance of this offer, does not require bilateral signing and is valid in electronic form. Definitions Terms and definitions used in the Agreement: Site - a set of software and hardware for computers, providing publication for public viewing of information and data, united by a common purpose, by means of technical means used for communication between computers in the Internet. The site is located on the Internet at: __________________. Administrator/Owner of the Site - ________________________________________________, located at: ________________________________________________. ... Subject of the Agreement 2.1. The owner of the Site renders services to the User on granting access to services of the Site, thus the obligatory condition of rendering by the Owner of the Site of services according to the present Agreement is acceptance, observance by the User and application to relations of the Parties of requirements and provisions defined by the present Agreement. Changes in the Agreement 2.2. The Website Owner reserves the right to change the terms and conditions of this Agreement and all its integral parts without agreement with the User with notification of the latter by posting on the Website a new version of the Agreement or any integral part thereof subject to changes. Taking into account that information mailing may be recognized by the Parties as spam, the User undertakes to familiarize himself with the content of the Agreement posted on the Website at least once a month in order to timely familiarize himself with its changes." ,
+    "text2": "Privacy Policy Collection and Use of Personal Information 3.1. The User agrees that the Site Owner may collect and use his/her personal information, including credentials, in order to provide access to the Site services and functionality. Disclosure of Personal Information 3.2. The Website Owner undertakes not to disclose the User's personal information to third parties without the User's prior consent, except as provided by the legislation. Security 3.3. The Owner of the Site takes all necessary measures to ensure the safety of the User's personal information, but does not guarantee absolute protection. Consent 3.4. Registration on the Site means the User's consent to the privacy policy and processing of his/her personal information within the framework described in this section."
+  },
+  "buttons": {
+    "next": "Next",
+    "back": "Back"
+  }
+}

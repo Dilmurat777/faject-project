@@ -1,0 +1,51 @@
+.active {
+  white-space: pre-wrap;
+  display: block;
+  color: white;
+  // width: 728px;
+  // height: 256px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.servicesText {
+  color: white;
+  font-family: 'Montserrat' sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  max-width: 728px;
+  margin-top: 10px;
+  padding: 0 5px;
+}
+
+
+
+.disable {
+  display: none;
+}
+
+@media (max-width: 1040px) {
+  .servicesText {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .servicesText {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .active {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+

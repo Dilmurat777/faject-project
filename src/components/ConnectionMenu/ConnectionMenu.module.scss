@@ -1,0 +1,124 @@
+.wrapper {
+  position: fixed;
+  bottom: 56px;
+  right: 56px;
+  z-index: 5;  
+  width: 69px;
+  height: 69px;
+
+
+  @media screen and (max-width: 560px){
+    bottom: 45px;
+    right: 15px;
+  }
+}
+
+.menu_wrapper {
+  width: 69px;
+  position: fixed;
+  height: 69px;
+
+  div {
+    border-radius: 35px;
+  }
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 560px){
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.share_button {
+  background: #9f95ff;
+  width: 69px;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  border: 1px solid #fff;
+
+  @media screen and (max-width: 560px){
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.share_button.open {
+  border: 1px solid #9f95ff;
+}
+
+.list {
+  background: white;
+  border: 1px solid #9f95ff;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 5px;
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  min-height: 69px;
+  height: 69px;
+  padding: 32px 16px 0;
+}
+
+.list > div {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 22px;
+}
+
+.list.active {
+  min-height: 330px;
+}
+
+@media screen and (max-width: 560px){
+
+  .menu_wrapper svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .share_button {
+      width: 58px;
+      height: 58px;
+
+      &.open {
+        border: 1px solid #fff;
+      }
+  }
+
+  .list {
+    border: 1px solid #9f95ff;
+    padding: 20px 13px 31px;
+    background: #9f95ff;
+
+    min-height: 58px;
+    height: 58px;
+
+    &.active {
+      min-height: 280px;
+    }
+
+    svg path {
+      fill: #fff;
+      stroke: none;
+    }
+
+    div {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 22px;
+    }
+  }
+}

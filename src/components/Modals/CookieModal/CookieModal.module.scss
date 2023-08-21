@@ -1,0 +1,43 @@
+.modal {
+    z-index: 6;
+    background-color: rgba(4, 13, 18, 1);
+    width: 100%;
+    color: white;
+    border-radius: 22px 22px 0 0;
+    top: 90vh;
+}
+
+
+
+.cookie {
+    width: 53px;
+    height: 53px;
+    background-color: #fff;
+}
+
+.text {
+    width: 671px;
+    height: 40px;
+    text-align: left;
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+
+    a {
+        text-decoration: underline;
+        color: white;
+    }
+}
+
+.close {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.submit {
+    background-color: rgba(159, 149, 255, 1);
+    border: 2px solid rgba(159, 149, 255, 1);
+}

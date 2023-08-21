@@ -1,0 +1,51 @@
+// Buttons navbar
+
+.buttonItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 2px;
+  margin: 32px 0;
+}
+
+.buttonItem {
+  font-family: 'Kanit' sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 1.2px;
+
+  color: #fff;
+  padding: 4px 14px;
+
+  border-radius: 22px;
+  border: 2px solid #fff;
+  background: #040d12;
+
+  transition: all 0.3s ease-in-out;
+
+  cursor: pointer;
+}
+
+.activeButtonItem {
+  background-color: #9f95ff;
+  border: 2px solid #9f95ff;
+}
+
+// Media
+@media (max-width: 992px) {
+  .buttonItem {
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+  }
+}
+
+
+
+

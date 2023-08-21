@@ -1,0 +1,66 @@
+.ticker {
+  width: 100%;
+  padding: 50px 0 66px 0;
+  user-select: none;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tickerItem {
+  color: rgba(159, 149, 255, 1);
+  font-size: 64px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 0 66px;
+}
+
+.tickerItemWhite {
+  color: white;
+  font-size: 64px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 0 66px;
+}
+
+@media screen and (max-width: 1130px) {
+  .ticker {
+    padding: 40px 0 56px 0;
+  }
+  .tickerItem {
+    font-size: 45px;
+    padding: 0 30px;
+  }
+  .tickerItemWhite {
+    font-size: 45px;
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ticker {
+    padding: 17px 0 20px 0;
+  }
+  .tickerItem {
+    font-size: 35px;
+    padding: 0 30px;
+  }
+  .tickerItemWhite {
+    font-size: 35px;
+    padding: 0 30px;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .tickerItem {
+    // font-size: 28px;
+    padding: 0 20px;
+  }
+  .tickerItemWhite {
+    // font-size: 28px;
+    padding: 0 20px;
+  }
+}

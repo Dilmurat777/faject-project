@@ -1,0 +1,365 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./src/components/NavBar/NavBar.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.order-button {
+    margin: 12px 0 0 0;
+    border-radius: 50px;
+    border: 3px solid;
+
+}
+
+.lang-button {
+    background-color: #00000000;
+    margin: 10px 0 0 0;
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    border: 0;
+
+
+}
+
+.lang-button div {
+    display: inline-block;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 0 0 10px;
+}
+
+.lang-button img {
+    margin: 0 7px 0 0;
+}
+
+.navbar-left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 16px;
+}
+
+.navbar-left-item {
+    max-width: 50%;
+    padding: 1%;
+}
+
+.navbar-left-item img {
+    height: 67px;
+    width: auto;
+    padding-top: 10px;
+}
+
+.navbar-right-item img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar-outer {
+    font-family: Montserrat, sans-serif;
+    font-size: 25px;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    white-space: nowrap;
+    width: 1280px;
+    padding-left: 96px;
+    padding-right: 96px;
+}
+
+.navbar-right {
+    font-family: 'Kanit', sans-serif;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #00000000;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: #FFFFFF;
+}
+
+button:hover {
+    border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .navbar-left-item:nth-child(2),
+    .navbar-left-item:nth-child(3),
+    .lang-button {
+        display: none;
+    }
+
+    .navbar-outer {
+    min-width: 320px;
+    width: 100%;
+    height: 64px;
+    padding: 0px 18px;
+    border-radius: 0px 0px 22px 22px;
+    top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+    .navbar-left {
+        width: 50%;
+        gap: 10px;
+        height: 64;
+        /* Reduce the gap for mobile */
+    }
+
+    .navbar-left-item {
+        max-width: unset;
+        height: 40px;
+        width: 120px;
+
+        /* Remove max-width to take full width on mobile */
+    }
+
+    .navbar-left-item img {
+        height: 40px;
+        /* Adjust image size for mobile */
+        padding-top: 0;
+        /* Remove the top padding for mobile */
+    }
+
+    .navbar-right {
+        width: 50%;
+        height: 64px;
+        gap: 1px;
+        /* Reduce the gap for mobile */
+        
+        justify-content: center;
+        align-items: center; /* Change to 'flex-start' for top alignment or 'flex-end' for bottom alignment */
+    }
+
+    .navbar-right-item {
+        width: auto;       
+    }
+    
+    
+    .order-button {
+        margin: 0 0 0 0;
+        border-radius: 32px;
+        border: 3px solid;
+       }
+
+       button {
+        border-radius: 8px;
+        border: 1px solid transparent;
+        padding: 0.6em 1em;  
+        font-size: 16px;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: #00000000;
+        cursor: pointer;
+        transition: border-color 0.25s;
+        color: #FFFFFF;
+        justify-content: center;
+
+
+    }
+    
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./src/components/About/About.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.about-title {
+    color: var(--white, #FFF);
+
+    /* H2 */
+    font-family: Montserrat, sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    text-align: left;
+    margin: 50px;
+    min-width: 300px;
+}
+
+.about-paragraph {
+    color: var(--white, #FFF);
+
+    /* H4 */
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    /* 133.333% */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.about-paragraph div {
+    margin: 30px;
+}
+
+.about-counters-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+}
+
+.about-counter {
+    color: var(--purple, #9F95FF);
+
+    /* H2 */
+    font-family: Montserrat, sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -2.56px;
+    text-align: left;
+    padding: 0 0 15px 0;
+}
+
+.about-counter-box {
+    max-width: 300px;
+}
+
+.about-counter-subtitle {
+    color: var(--white, #FFF);
+
+    /* H4 */
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    /* 133.333% */
+}
+
+.about-footer {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.social-logos {
+    display: flex;
+    gap: 10px;
+}
+
+.social-logo {
+    width: 25px;
+    height: 25px;
+}
+
+.footer-link {
+    text-align: left;
+}
+
+.page-container {
+    width: 1280px;
+}
+  
+@media only screen and (max-width: 767px) {
+    #root {
+      max-width: 390px; /* Adjust max-width for mobile */
+      margin: 0 auto;
+      padding: 20px 18px 20px 18px; /* Add padding for mobile */
+      text-align: center;
+    }
+  
+    .about-title {
+      font-size: 20px; /* Reduce font size for mobile */
+      text-align: left; /* Left align the heading for mobile */
+      margin: 30px 0; /* Adjust margin for mobile */
+    }
+  
+    .about-paragraph {
+      font-size: 16px; /* Reduce font size for mobile */
+      text-align: left; /* Left align the paragraph for mobile */
+    }
+  
+    .about-paragraph div {
+      margin: 20px 0; /* Adjust margin for mobile */
+
+    }
+    .about-paragraph img {
+        width: 100px;
+        height: 100px;
+        padding: 1em
+      }
+
+    .about-counters-section {
+      flex-direction: column; /* Stack counters vertically for mobile */
+      align-items: center; /* Center align counters for mobile */
+    }
+  
+    .about-counter {
+      font-size: 32px; /* Reduce font size for mobile */
+      padding: 0; /* Remove padding for mobile */
+      text-align: center; /* Center align counter for mobile */
+    }
+  
+    .about-counter-box {
+      max-width: unset; /* Remove max-width for mobile */
+    }
+  
+    .about-counter-subtitle {
+      font-size: 16px; /* Reduce font size for mobile */
+      text-align: left; /* Left align counter subtitle for mobile */
+    }
+  
+    .about-footer {
+      flex-direction: column; /* Stack footer items vertically for mobile */
+      align-items: center; /* Center align footer items for mobile */
+    }
+  
+    .social-logos {
+      gap: 20px; /* Increase the gap between social logos for mobile */
+    }
+  
+    .social-logo {
+      width: 20px; /* Reduce social logo size for mobile */
+      height: 20px; /* Reduce social logo size for mobile */
+    }
+  
+    .footer-link {
+      text-align: left; /* Left align footer links for mobile */
+    }
+
+    .page-container {
+        width: 100%;
+        padding: 20px 18px;
+    }
+  }

@@ -1,0 +1,133 @@
+.modal {
+  background: none;
+  top: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 0;
+  position: relative;
+  height: auto;
+}
+
+
+.send_form {
+    max-width: 390px;
+    color: #fff;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+  
+    border-radius: 19px;
+    padding: 26px;
+    border: 1px solid #9f95ff;
+  }
+  
+  .send_form h2 {
+    color: #fff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    text-align: start;
+    font-weight: 500;
+    margin-bottom: 19px;
+    line-height: 24px; /* 100% */
+  }
+  
+  .send_form .custom_input,
+  .send_form .custom_select,
+  .send_form .custom_textarea {
+    margin-bottom: 19px;
+  }
+  
+  .send_form input,
+  .send_form select,
+  .send_form textarea {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    padding: 8px 14px;
+    border-radius: 8px;
+  }
+  
+  .send_form input::placeholder,
+  .send_form textarea::placeholder {
+    color: #fff; /* Здесь вы можете задать желаемый цвет */
+  }
+  
+  .send_form .custom_textarea textarea {
+    color: #ccc;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    min-height: 81px; /* Устанавливаем минимальную высоту в 81px */
+    resize: vertical;
+  }
+  
+  .send_form .submit_button {
+    border-radius: 8px;
+    background: #9f95ff;
+    text-align: center;
+    color: #000;
+    font-weight: 400;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 5px;
+    cursor: pointer;
+  
+    &:hover {
+      background: #7467f3;
+    }
+  
+    &:active {
+      background: #6253ee;
+    }
+  }
+  
+  .custom_select {
+    position: relative;
+  }
+  
+  .custom_select select {
+    appearance: none; /* Убираем стандартный вид элемента select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px; /* Добавляем отступ справа для размещения стрелки */
+  }
+  
+  .custom_select::after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    right: 15px; /* Расположение стрелки справа */
+    width: 14px;
+    height: 8px;
+    background: url(./arrow.png) no-repeat center;
+  }
+  
+  .custom_select option {
+    color: #fff; /* Изменение жирности шрифта */
+    background-color: black; /* Изменение фона элемента <option> */
+    padding: 10px;
+    margin-bottom: 5px; /* Изменение отступов внутри элемента <option> */
+    border: 1px solid #ccc;
+  }
+  
+  .bottom_arrow {
+    bottom: calc(0% - 25px);
+    right: calc(50% - 24px);
+    position: absolute;
+    z-index: 100;
+    background: inherit;
+  }
+  

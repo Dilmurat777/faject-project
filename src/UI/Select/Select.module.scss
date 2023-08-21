@@ -1,0 +1,59 @@
+
+.main {
+    width: 540px;
+}
+
+.select {
+    position: relative;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: white;
+    cursor: pointer;
+
+    width: 540px;
+    height: 44px;
+    padding: 6px 16px 6px 16px;
+    border-radius: 22px;
+    border: 1px solid white;
+    gap: 4px;
+
+    background: linear-gradient(0deg, #040D12, #040D12),
+    linear-gradient(0deg, #FFFFFF, #FFFFFF);
+
+    &::placeholder {
+        font-family: Montserrat, sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 32px;
+        letter-spacing: -0.01em;
+        text-align: left;
+    }
+}
+
+.disabled {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.activeDrop {
+    width: 538px;
+    border: 2px solid white;
+    border-bottom: rgba(4, 13, 18, 1) !important;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.activeSelect {
+    border: 2px solid white;
+    &::placeholder {
+        color: white;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,299 @@
+.home {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 50px;
+}
+.container {
+  max-width: 1125px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.homeBlog {
+  margin-top: 220px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 5;
+}
+.homeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 654px;
+  z-index: 10;
+  align-items: flex-start;
+}
+
+.homeTitle {
+  font-family: 'Kanit', sans-serif;
+  font-size: 108px;
+  font-weight: 800;
+}
+
+.homeText {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+
+
+.bookButton {
+  border-radius: 32px;
+  border: none;
+  background: #9f95ff;
+  padding: 18px 30px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family: Inter;
+  font-weight: 600;
+
+  &:disabled {
+    background: #9f95ff;
+    border: none;
+    color:#fff;
+    border-radius: 32px;
+    opacity: 1;
+  }
+}
+
+.homeImages {
+  position: relative;
+  float: right;
+  top: -211px;
+  left: -107px;
+}
+
+.image1 {
+  position: absolute;
+  top: 39px;
+  left: -170px;
+  z-index: 1;
+}
+.image2 {
+  position: absolute;
+  top: -12px;
+  left: 72px;
+  z-index: 0;
+}
+.image3 {
+  position: absolute;
+  left: 325px;
+  top: 140px;
+  z-index: 1;
+}
+.image4 {
+  position: absolute;
+  top: 362px;
+  left: 127px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 1261px) {
+  .homeInfo {
+    max-width: 550px;
+    margin-top: 50px;
+    font-size: 22px;
+  }
+
+  .homeTitle {
+    font-size: 90px;
+  }
+
+  .homeImages {
+    top: -215px;
+    left: 60px;
+  }
+  .homeImages {
+    left: -50px;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+
+  .homeTitle {
+    font-size: 70px;
+  }
+  .homeInfo {
+    margin-top: 50px;
+  }
+  
+}
+
+@media screen and (max-width: 1130px) {
+  .homeBlog {
+    flex-direction: column-reverse;
+  }
+
+  .homeInfo {
+    max-width: 800px;
+    margin-top: 330px;
+  }
+  .homeImages {
+    margin: 0 auto;
+    top: -215px;
+    left: -230px;
+  }
+
+  .homeText {
+    letter-spacing: 0.8px;
+  }
+  
+}
+
+@media screen and (max-width: 992px) {
+  .homeInfo {
+    max-width: 600px;
+    margin-top: 250px;
+  }
+
+  .homeImages {
+    left: -125px;
+  }
+  .image1 img {
+    width: 245px;
+    height: 248px;
+    flex-shrink: 0;
+  }
+
+  .image2 img {
+    width: 235px;
+    height: 333px;
+    flex-shrink: 0;
+  }
+
+  .image3 img {
+    width: 234px;
+    height: 187px;
+    flex-shrink: 0;
+  }
+
+  .image4 img {
+    width: 370px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .image1 {
+    position: absolute;
+    top: 31px;
+    left: -175px;
+    z-index: 2;
+  }
+
+  .image2 {
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    z-index: 1;
+  }
+
+  .image3 {
+    position: absolute;
+    top: 90px;
+    left: 194px;
+    z-index: 2;
+  }
+
+  .image4 {
+    position: absolute;
+    top: 250px;
+    left: 58px;
+    z-index: 2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .homeBlog {
+    margin-top: 0;
+  }
+
+  .bookButtonBlock {
+    height: 60px;
+  }
+
+  .bookButton {
+    font-size: 18px;
+    padding: 14px 20px;
+    max-height: none;
+  }
+
+  .homeInfo {
+    gap: 10px;
+    margin-top: 270px;
+  }
+
+  .homeTitle {
+    font-size: 58px;
+  }
+
+  .homeText {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .homeImages {
+    top: -255px;
+    left: -110px;
+  }
+
+  .image1 {
+    position: absolute;
+    top: 274px;
+    left: -67px;
+    z-index: 2;
+  }
+
+  .image2 {
+    position: absolute;
+    top: 250px;
+    left: 40px;
+    z-index: 1;
+  }
+
+  .image3 {
+    position: absolute;
+    top: 320px;
+    left: 150px;
+    z-index: 2;
+  }
+
+  .image4 {
+    position: absolute;
+    top: 420px;
+    left: 60px;
+    z-index: 2;
+  }
+
+  .image1 img {
+    width: 145px;
+    height: 148px;
+    flex-shrink: 0;
+  }
+
+  .image2 img {
+    width: 135px;
+    height: 233px;
+    flex-shrink: 0;
+  }
+
+  .image3 img {
+    width: 134px;
+    height: 87px;
+    flex-shrink: 0;
+  }
+
+  .image4 img {
+    width: 214px;
+    height: 96px;
+    flex-shrink: 0;
+  }
+}
