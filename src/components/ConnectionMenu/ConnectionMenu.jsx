@@ -43,7 +43,7 @@ const ConnectionMenu = () => {
           </div>
           <div>
             <Button>
-              <WhatsApp />
+              <WhatsApp className={ContactsStyles.WhatsApp}/>
             </Button>
           </div>
         </div>
