@@ -19,6 +19,7 @@ const Gallery = () => {
   const [fullscreen, setFullscreen] = useState(null);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const newProject = portfolioGalleryUpData.filter((project) => {
@@ -38,17 +39,17 @@ const Gallery = () => {
   };
 
   const handleNext = () => {
+    setDirection(+1);
     const nextIndex = (active + 1) % portfolioNavData.length;
-    setGalleryItems(portfolioNavData[nextIndex].name);
     setActive(nextIndex);
-    
+    setGalleryItems(portfolioNavData[nextIndex].name);
   };
 
   const handlePrevious = () => {
+    setDirection(-1);
     const prevIndex = (active - 1 + portfolioNavData.length) % portfolioNavData.length;
-    setGalleryItems(portfolioNavData[prevIndex].name);
     setActive(prevIndex);
-    
+    setGalleryItems(portfolioNavData[prevIndex].name);
   };
 
   // ******************** Overlay for full screen
@@ -96,6 +97,18 @@ const Gallery = () => {
     setFullscreen(getCurrentImage(nextIndex));
   };
 
+  const variants = {
+    initial: (direction) => {
+      return { x: direction > 0 ? 800 : -800, opacity: 0 };
+    },
+
+    animate: { x: 0, opacity: 1 },
+
+    exit: (direction) => {
+      return { x: direction > 0 ? -800 : 800, opacity: 0 };
+    },
+  };
+
   return (
     <div>
       {fullscreen && (
@@ -105,12 +118,22 @@ const Gallery = () => {
             <AiOutlineClose />
           </button>
           <div className={styles.fullscreenWrapper}>
-              <img
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+              variants={variants}
+              initial="initial"
+              animate="animate"
+              transition={{
+                type: 'tween',
+                duration: .5,
+              }}
+              custom={direction}
                 className={styles.fullscreenImage}
                 src={fullscreen}
                 key={fullscreen}
                 alt="full screen images"
               />
+            </AnimatePresence>
             <div className={styles.fullscreenImageNavDots}>
               {getCurrentImages().map((item, index) => (
                 <div
@@ -150,13 +173,25 @@ const Gallery = () => {
             portfolioGalleryUpData
               .filter((project) => project.category === galleryItems)
               .map((item, index) => (
-                <Card
-                  key={item.id}
-                  image={item.image}
-                  title={item.title}
-                  index={index}
-                  handelImage={() => handleFullImage(item.image)}
-                />
+                <AnimatePresence key={item.id} custom={direction}>
+                  <motion.div
+                    variants={variants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    custom={direction}
+                    transition={{
+                      duration: 1,
+                    }}>
+                    <Card
+                      key={item.id}
+                      image={item.image}
+                      title={item.title}
+                      index={index}
+                      handelImage={() => handleFullImage(item.image)}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               ))}
         </div>
         <div className={styles.portfolioGridCategory2}>
@@ -165,13 +200,25 @@ const Gallery = () => {
 
               .filter((project) => project.category === galleryItems)
               .map((item, index) => (
-                <Card
-                  key={item.id}
-                  image={item.image}
-                  title={item.title}
-                  index={index}
-                  handelImage={() => handleFullImage(item.image)}
-                />
+                <AnimatePresence key={item.id} custom={direction}>
+                  <motion.div
+                    variants={variants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    custom={direction}
+                    transition={{
+                      duration: 1,
+                    }}>
+                    <Card
+                      key={item.id}
+                      image={item.image}
+                      title={item.title}
+                      index={index}
+                      handelImage={() => handleFullImage(item.image)}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               ))}
         </div>
 

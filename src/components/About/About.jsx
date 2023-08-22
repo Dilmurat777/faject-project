@@ -11,7 +11,7 @@ import styles from './About.module.scss';
 
 const textRight = {
   hidden: {
-    x: -200,
+    x: -150,
     opacity: 0,
   },
   visible: (custom) => ({
@@ -23,7 +23,7 @@ const textRight = {
 
 const textLeft = {
   hidden: {
-    x: 200,
+    x: 150,
     opacity: 0,
   },
   visible: (custom) => ({
