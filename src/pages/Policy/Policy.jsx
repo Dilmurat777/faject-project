@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Policy.module.scss';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import HeaderPolicy from '../Policy/HeaderPolicy';
 import ArrowSVG from '../../assets/ArrowSVG';
 
 const Policy = () => {
@@ -18,7 +18,7 @@ const Policy = () => {
 
   return (
     <div>
-      <Header />
+      <HeaderPolicy />
       <section className={styles.policy}>
         <div className={styles.container}>
           <h1 className={styles.policyTitle}>{t('policy.title')}</h1>

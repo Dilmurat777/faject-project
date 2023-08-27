@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import OrderPage from "./pages/OrderPage/OrderPage.jsx";
-import Policy from './components/Policy/Policy';
+import Policy from './pages/Policy/Policy';
 
 
 const Router = () => {

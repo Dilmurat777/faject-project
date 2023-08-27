@@ -62,7 +62,9 @@
   "footer": {
     "text1": "We are here!",
     "text2": "Terms & Conditions",
-    "text3": "Privacy Policy"
+    "text3": "Privacy Policy",
+    "address": "Address: Tashkent 7",
+    "number": "Telephone"
   },
   "policy": {
     "title": "Documentation",
