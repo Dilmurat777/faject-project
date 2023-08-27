@@ -2,6 +2,7 @@ import React from "react";
 import Gallery from "./Gallery/Gallery";
 import { useTranslation } from 'react-i18next';
 import s from './Portfolio.module.scss'
+import portfolioAPI from "../../serviceApi/portfolio.api";
 import { useEffect } from "react";
 
 const Portfolio = () => {

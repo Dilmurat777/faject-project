@@ -48,3 +48,9 @@ button:disabled{
     padding: 2px 12px 2px 12px;
   }
 }
+
+@media (max-width: 350px) { 
+  .btn {
+    font-size: 12px;
+  }
+}

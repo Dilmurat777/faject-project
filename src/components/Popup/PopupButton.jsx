@@ -6,9 +6,14 @@ import Header from "../Header/Header";
 import FormDownArrowSVG from "../../assets/FormDownArrowSVG";
 import { useEffect } from "react";
 import SuccessSVG from "../../assets/SuccessSVG";
+import { FailedSVG } from "../../assets/FailedSVG";
 
 function concatClassNames(...classNames) {
   return classNames.filter(className => !!className).join(' ');
+}
+
+function toggleMenu(method = 'add') {
+  document.body.classList[method]('menu-hide');
 }
 
 function PopupButton({ content, children, showArrow = true, ...props }) {
@@ -19,7 +24,7 @@ function PopupButton({ content, children, showArrow = true, ...props }) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const response = (res) => {
+  const dispatch = (res) => {
     if (res === 'error') {
       setError(true)
     } else if (res === 'success') {
@@ -30,18 +35,18 @@ function PopupButton({ content, children, showArrow = true, ...props }) {
 
   const openModal = () => {
     setIsModalOpen(true);
-    document.body.classList.add('menu-hide')
+    toggleMenu()
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    document.body.classList.remove('menu-hide')
+    toggleMenu('remove')
   };
 
   const classNames = concatClassNames(classes.bookButton, props.className);
 
   useEffect(() => {
-    document.body.classList.remove('menu-hide')
+    toggleMenu('remove')
   }, [])
 
   useEffect(() => {
@@ -51,6 +56,7 @@ function PopupButton({ content, children, showArrow = true, ...props }) {
         setIsModalOpen(false);
         setSuccess(false)
         setError(false)
+        toggleMenu('remove')
       }, 2000);
 
       return () => {
@@ -67,7 +73,7 @@ function PopupButton({ content, children, showArrow = true, ...props }) {
       </Button>
       {isModalOpen && (
         <div className={classes.modal + ' ' + classes._active}>
-          <div onClick={closeModal} className={classes.modal__bg}> </div>
+          <div className={classes.modal__bg}> </div>
           <div className={classes.modal__wrap}>
             <div className={classes.content}>
               <Header showPopupButton={false} />
@@ -75,7 +81,7 @@ function PopupButton({ content, children, showArrow = true, ...props }) {
                 {(success === false && error === false) && <a className={classes.modal__close} href="#" onClick={closeModal}>
                   <span className={classes.icon_close}>x</span>
                 </a>}
-                {(success === false && error === false) && <Content isOpen={isModalOpen} setIsClose={closeModal} next={response} />}
+                {(success === false && error === false) && <Content isOpen={isModalOpen} setIsClose={closeModal} dispatch={dispatch} />}
                 {success && <Success />}
                 {error && <Error />}
               </div>
@@ -95,7 +101,7 @@ const Success = () => {
     <div className={classes.success}>
       <div><p>Обращение в тех. поддержку</p></div> 
       <div><SuccessSVG /></div> 
-      <div><p>Сообщение успешно отправлено.</p></div> 
+      <div><p>Заявка успешно отправлена.</p></div> 
 
 
     </div>
@@ -104,8 +110,10 @@ const Success = () => {
 
 const Error = () => {
   return (
-    <div>
-      Заявка не отправлена
+    <div className={classes.success}>
+      <div><p>Обращение в тех. поддержку</p></div> 
+      <div><FailedSVG /></div> 
+      <div><p>Заявка не отправлена.</p></div> 
     </div>
   )
 }

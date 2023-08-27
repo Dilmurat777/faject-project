@@ -2,6 +2,7 @@
   font-size: 14px;
   font-weight: 400;
   color: #fff;
+  margin-top: 326px;
   margin-bottom: 50px;
 }
 .container {
@@ -212,6 +213,9 @@
 }
 
 @media screen and (max-width: 610px) {
+  .home {
+    margin-top: 110px;
+  }
   .homeBlog {
     margin-top: 0;
   }
