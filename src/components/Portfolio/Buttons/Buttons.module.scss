@@ -3,13 +3,13 @@
 .buttonItems {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:space-between;
   align-items: center;
   white-space: nowrap;
   flex-wrap: nowrap;
-  overflow: hidden;
-  gap: 2px;
   margin: 32px 0;
+  width: 100%;
+  gap: 2px;
 }
 
 .buttonItem {
@@ -29,6 +29,12 @@
   transition: all 0.3s ease-in-out;
 
   cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  align-items: center;
+  
 }
 
 .activeButtonItem {
@@ -45,6 +51,9 @@
     padding: 4px 12px;
   }
 }
+
+
+
 
 
 

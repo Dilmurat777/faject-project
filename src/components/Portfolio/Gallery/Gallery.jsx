@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { portfolioNavData, portfolioGalleryUpData, portfolioGalleryDownData } from '../data';
+import { portfolioNavData, portfolioData } from '../data';
 import Card from '../Card/Card';
 import Buttons from '../Buttons/Buttons';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -8,7 +8,14 @@ import { useTranslation } from 'react-i18next';
 import styles from './Gallery.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 
-const categoryDefault = 'Разработка веб-сайта - 73';
+const categoryDefault = 'Разработка веб-сайта';
+
+function splitArrayInHalf(arr) {
+  const middleIndex = Math.floor(arr.length / 2);
+  const firstHalf = arr.slice(0, middleIndex);
+  const secondHalf = arr.slice(middleIndex);
+  return [firstHalf, secondHalf];
+}
 
 const Gallery = () => {
   const { t, i18n } = useTranslation();
@@ -22,8 +29,8 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
 
   useEffect(() => {
-    const newProject = portfolioGalleryUpData.filter((project) => {
-      return project.category === galleryItems;
+    const newProject = portfolioData.filter((project) => {
+      return project.categoryEN === galleryItems || project.categoryRU === galleryItems;
     });
     setFilterProject(newProject);
   }, [galleryItems]);
@@ -32,11 +39,12 @@ const Gallery = () => {
     const interval = setInterval(handleNext, 4000);
     return () => clearInterval(interval);
   }, [active]);
-
-  const handelNavClick = (e, index) => {
-    setGalleryItems(e.target.textContent);
+  const handelNavClick = (item, index) => {
+    setGalleryItems(item);
     setActive(index);
   };
+
+  const [firstHalf, secondHalf] = splitArrayInHalf(filterProject);
 
   const handleNext = () => {
     setDirection(+1);
@@ -50,6 +58,10 @@ const Gallery = () => {
     const prevIndex = (active - 1 + portfolioNavData.length) % portfolioNavData.length;
     setActive(prevIndex);
     setGalleryItems(portfolioNavData[prevIndex].name);
+  };
+
+  const getLimitedImages = (images, limit) => {
+    return images.slice(0, limit);
   };
 
   // ******************** Overlay for full screen
@@ -69,10 +81,9 @@ const Gallery = () => {
   };
 
   const getCurrentImages = () => {
-    // Получение массива текущих изображений в галерее
-    return portfolioGalleryUpData
-      .concat(portfolioGalleryDownData)
-      .filter((project) => project.category === galleryItems);
+    return portfolioData.filter((project) => {
+      return project.categoryEN === galleryItems || project.categoryRU === galleryItems;
+    });
   };
 
   const getTotalImages = () => {
@@ -120,14 +131,14 @@ const Gallery = () => {
           <div className={styles.fullscreenWrapper}>
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
-              variants={variants}
-              initial="initial"
-              animate="animate"
-              transition={{
-                type: 'tween',
-                duration: .5,
-              }}
-              custom={direction}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                transition={{
+                  type: 'tween',
+                  duration: 0.5,
+                }}
+                custom={direction}
                 className={styles.fullscreenImage}
                 src={fullscreen}
                 key={fullscreen}
@@ -169,57 +180,52 @@ const Gallery = () => {
       <Buttons handelNavClick={handelNavClick} active={active} />
       <div>
         <div className={styles.portfolioGridCategory1}>
-          {galleryItems &&
-            portfolioGalleryUpData
-              .filter((project) => project.category === galleryItems)
-              .map((item, index) => (
-                <AnimatePresence key={item.id} custom={direction}>
-                  <motion.div
-                    variants={variants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    custom={direction}
-                    transition={{
-                      duration: 1,
-                    }}>
-                    <Card
-                      key={item.id}
-                      image={item.image}
-                      title={item.title}
-                      index={index}
-                      handelImage={() => handleFullImage(item.image)}
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              ))}
+        {galleryItems &&
+          getLimitedImages(firstHalf, 2).map((item, index) => (
+            <AnimatePresence key={item.id} custom={direction}>
+                <motion.div
+                  variants={variants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  custom={direction}
+                  transition={{
+                    duration: 1,
+                  }}>
+                  <Card
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
+                    index={index}
+                    handelImage={() => handleFullImage(item.image)}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            ))}
         </div>
         <div className={styles.portfolioGridCategory2}>
-          {galleryItems &&
-            portfolioGalleryDownData
-
-              .filter((project) => project.category === galleryItems)
-              .map((item, index) => (
-                <AnimatePresence key={item.id} custom={direction}>
-                  <motion.div
-                    variants={variants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    custom={direction}
-                    transition={{
-                      duration: 1,
-                    }}>
-                    <Card
-                      key={item.id}
-                      image={item.image}
-                      title={item.title}
-                      index={index}
-                      handelImage={() => handleFullImage(item.image)}
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              ))}
+        {galleryItems &&
+          getLimitedImages(secondHalf, 2).map((item, index) => (
+            <AnimatePresence key={item.id} custom={direction}>
+                <motion.div
+                  variants={variants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  custom={direction}
+                  transition={{
+                    duration: 1,
+                  }}>
+                  <Card
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
+                    index={index}
+                    handelImage={() => handleFullImage(item.image)}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            ))}
         </div>
 
         <div className={styles.portfolioButtons}>

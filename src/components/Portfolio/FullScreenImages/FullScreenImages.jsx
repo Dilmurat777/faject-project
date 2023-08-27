@@ -1,69 +1,86 @@
-import React from 'react';
-import Header from '../../Header/Header';
-import { AiOutlineClose } from 'react-icons/ai';
-import { useTranslation } from 'react-i18next';
-import styles from './FullScreenImages.module.scss';
+// import React from 'react';
+// import Header from '../../Header/Header';
+// import { AiOutlineClose } from 'react-icons/ai';
+// import { useTranslation } from 'react-i18next';
+// import styles from './FullScreenImages.module.scss';
 
-const FullScreenImages = ({
-  fullscreen,
-  handleCloseFullImage,
-  getCurrentImages,
-  setCurrentImageIndex,
-  setFullscreen,
-  currentImageIndex,
-  fullscreenHandleNext,
-  fullscreenHandlePrevious,
-  getCurrentImage
-}) => {
-  const { t, i18n } = useTranslation();
+// const FullScreenImages = ({
+//   fullscreen,
+//   handleCloseFullImage,
+//   getCurrentImages,
+//   currentImageIndex,
+//   fullscreenHandleNext,
+//   fullscreenHandlePrevious,
+//   // setCurrentImageIndex,
+//   // setFullscreen,
+// }) => {
+//   const { t, i18n } = useTranslation();
 
-  return (
-    <div>
-      {fullscreen && (
-        <div className={styles.fullscreenImgOverlay}>
-          <Header />
-          <button className={styles.closeButton} onClick={handleCloseFullImage}>
-            <AiOutlineClose />
-          </button>
-          <div className={styles.fullscreenWrapper}>
-            <img className={styles.fullscreenImage} src={fullscreen} alt="full screen images" />
+//   const variants = {
+//     initial: (direction) => {
+//       return { x: direction > 0 ? 800 : -800, opacity: 0 };
+//     },
+//     animate: { x: 0, opacity: 1 },
+//     exit: (direction) => {
+//       return { x: direction > 0 ? -800 : 800, opacity: 0 };
+//     },
+//   };
 
-            <div className={styles.fullscreenImageNavDots}>
-              {getCurrentImages().map((item, index) => (
-                <div
-                  key={index}
-                  className={`${styles.navDot} ${
-                    index === currentImageIndex ? styles.activeDot : ''
-                  }`}
-                  onClick={() => {
-                    setCurrentImageIndex(index); // Update the current image index
-                    setFullscreen(getCurrentImage(index)); // Update the displayed fullscreen image
-                  }}></div>
-              ))}
-            </div>
+//   return (
+//     <div className={styles.fullscreenImgOverlay}>
+//       <Header/>
+//       <button className={styles.closeButton} onClick={handleCloseFullImage}>
+//         <AiOutlineClose />
+//       </button>
+//       <div className={styles.fullscreenWrapper}>
+//         <AnimatePresence initial={false}>
+//           <motion.img
+//             variants={variants}
+//             initial="initial"
+//             animate="animate"
+//             transition={{
+//               type: 'tween',
+//               duration: 0.5,
+//             }}
+//             custom={direction}
+//             className={styles.fullscreenImage}
+//             src={fullscreen}
+//             key={fullscreen}
+//             alt="full screen images"
+//           />
+//         </AnimatePresence>
+//         {/* Add any other content */}
+//         <div className={styles.fullscreenImageNavDots}>
+//           {getCurrentImages().map((item, index) => (
+//             <div
+//               key={index}
+//               className={`${styles.navDot} ${
+//                 index === currentImageIndex ? styles.activeDot : ''
+//               }`}
+//               onClick={() => {
+//                 setCurrentImageIndex(index);
+//                 setFullscreen(getCurrentImage(index));
+//               }}
+//             ></div>
+//           ))}
+//         </div>
+//         {/* Add the text and buttons */}
+//         <p className={styles.fullscreenText}>{t('portfolio.desc')}</p>
+//         <div className={styles.fullscreenButtons}>
+//           <button className={`${styles.portfolioBtn} ${styles.fullscreenBtn}`} onClick={fullscreenHandlePrevious}>
+//             {t('buttons.back')}
+//           </button>
+//           <button className={`${styles.portfolioBtn} ${styles.fullscreenBtn}`} onClick={fullscreenHandleNext}>
+//             {t('buttons.next')}
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
-            <p className={styles.fullscreenText}>{t('portfolio.desc')}</p>
+// export default FullScreenImages;
 
-            <div className={styles.fullscreenButtons}>
-              <button
-                className={`${styles.portfolioBtn} ${styles.fullscreenBtn}`}
-                onClick={fullscreenHandlePrevious}>
-                {t('buttons.back')}
-              </button>
-              <button
-                className={`${styles.portfolioBtn} ${styles.fullscreenBtn}`}
-                onClick={fullscreenHandleNext}>
-                {t('buttons.next')}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default FullScreenImages;
-
-
-{/* <FullScreenImages fullscreen={fullscreen} handleCloseFullImage={handleCloseFullImage} getCurrentImages={getCurrentImages} setCurrentImageIndex={setCurrentImageIndex} setFullscreen={setFullscreen} currentImageIndex={currentImageIndex} fullscreenHandleNext={fullscreenHandleNext} fullscreenHandlePrevious={fullscreenHandlePrevious} getCurrentImage={getCurrentImage}/> */}
+{
+  /* <FullScreenImages fullscreen={fullscreen} handleCloseFullImage={handleCloseFullImage} getCurrentImages={getCurrentImages} setCurrentImageIndex={setCurrentImageIndex} setFullscreen={setFullscreen} currentImageIndex={currentImageIndex} fullscreenHandleNext={fullscreenHandleNext} fullscreenHandlePrevious={fullscreenHandlePrevious} getCurrentImage={getCurrentImage}/> */
+}

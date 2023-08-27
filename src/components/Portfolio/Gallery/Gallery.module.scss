@@ -99,10 +99,10 @@
 	 .fullscreenImgOverlay {
     position: fixed;
 
-    bottom: 13px;
+    top: 68px;
     left: 11px;
     width: 94%;
-    height: 97%;
+    height: 89%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -111,7 +111,7 @@
     border-radius: 22px;
     background-color: #040d12;
 
-    z-index: 1000;
+    z-index: 9999;
   }
 
   .fullscreenWrapper {
@@ -186,4 +186,16 @@
     background-color: #333;
   }
 
+  .portfolioBtn {
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+
+}
+
+
+@media screen and (max-width: 389px) {
+  .fullscreenImgOverlay {
+    height: 87%;
+  }
 }
