@@ -23,13 +23,13 @@ const Footer = () => {
           <div className={`${s.contacts} ${s.div2}`}>
             <p className={s.contact__text}>{t('footer.text1')}</p>
             <div className={s.links}>
-              <a href="#" className={s.link}>
+              <a href="https://www.instagram.com/faject/" target='_blank' className={s.link}>
                 <Instagram />
               </a>
-              <a href="#" className={s.link}>
+              <a href="https://t.me/faject_studio" target='_blank' className={s.link}>
                 <Telegram />
               </a>
-              <a href="#" className={s.link}>
+              <a  href="https://wa.me/998990277860" target='_blank' className={s.link}>
                 <WhatsApp />
               </a>
             </div>

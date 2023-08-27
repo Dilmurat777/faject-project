@@ -27,24 +27,24 @@ const ConnectionMenu = () => {
         </div>
         <div className={`${ContactsStyles.list} ${isOpen ? ContactsStyles.active : ''}`}>
           <div>
-            <Button>
+            <a href="tel:+998990277860" target='_blank'>
               <Phone />
-            </Button>
+            </a>
           </div>
           <div>
-            <Button>
+            <a href='https://t.me/faject_studio' target='_blank'>
               <Telegram />
-            </Button>
+            </a>
           </div>
           <div>
-            <Button>
+            <a href='https://www.instagram.com/faject/' target='_blank'>
               <Instagram />
-            </Button>
+            </a>
           </div>
           <div>
-            <Button>
+            <a href="https://wa.me/998990277860" target='_blank'>
               <WhatsApp className={ContactsStyles.WhatsApp}/>
-            </Button>
+            </a>
           </div>
         </div>
       </div>
