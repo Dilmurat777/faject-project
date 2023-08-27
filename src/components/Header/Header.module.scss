@@ -1,3 +1,12 @@
+.sectionHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #040D11;
+}
+
 .container {
   max-width: 1128px;
   margin: 0 auto;
@@ -68,11 +77,21 @@
 
 @media screen and (max-width: 550px) {
 
+  .header {
+    padding: 12px 0;
+  }
+
   .anchor {
     display: none;
   }
 
   .languageSelect {
     display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header {
+    padding: 10px 0;
   }
 }
