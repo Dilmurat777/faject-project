@@ -50,13 +50,112 @@
   opacity: 0.35;
 }
 
+// full screen on desktop ***************************
+
+
 .fullscreenImgOverlay {
-  display: none;
+  // display: none;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 115%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 15px;
+  // background: #040d12;
+  background-color: rgba(0, 0, 0, 0.95);
+
+  z-index: 9999;
+}
+
+.fullscreenWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.fullscreenImage {
+  max-width: 700px;
+  height: 450px;
+  border-radius: 10px;
+  object-fit: cover;
+  
+}
+
+
+.closeButton {
+  position: absolute;
+  top: -95px;
+  right: 20px;;
+
+  background: none;
+  line-height: 1px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+
+  padding: 4px 10px;
+  border: 2px solid #fff;
+  border-radius: 22px;
+}
+
+.fullscreenText {
+  font-family: 'Montserrat' sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.7px;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.fullscreenButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fullscreenBtn {
+  padding: 4px 16px;
 }
 
 .fullscreenImageNavDots {
-  display: none;
+  display: flex;
 }
+
+.navDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 15px 5px;
+}
+
+.activeDot {
+  background-color: #333;
+}
+
+// *****************************************************
+
+// .fullscreenImageNavDots {
+//   display: none;
+// }
+
+
 
 @media (max-width: 992px) {
   .portfolioGridCategory1,
@@ -69,6 +168,10 @@
   .portfolioGridCategory1,
   .portfolioGridCategory2 {
     grid-column-gap: 30px;
+  }
+
+  .fullscreenImage {
+    max-width: 500px;
   }
 }
 
@@ -95,53 +198,25 @@
   // ******** Overlay full screen images
 
   .fullscreenImgOverlay {
-    position: fixed;
-
-    top: 68px;
-    left: 11px;
+    top: 67px;
+    left: 12px;
     width: 94%;
     height: 89%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
     border: 2px solid #fff;
-    border-radius: 22px;
-    background-color: #040d12;
-
-    z-index: 9999;
   }
 
   .fullscreenWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 80%;
-    padding: 0 12px;
   }
 
   .fullscreenImage {
     max-width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: 400px;;
   }
 
   .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    background: none;
-    line-height: 1px;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    outline: none;
-
-    padding: 4px 10px;
-    border: 2px solid #fff;
-    border-radius: 22px;
+    top: -50px;
+    right: 12px;
   }
 
   .fullscreenText {
@@ -159,39 +234,28 @@
     justify-content: space-between;
     width: 100%;
   }
-
+  
   .fullscreenBtn {
     padding: 4px 12px;
   }
 
   //************ Nav dots
-
-  .fullscreenImageNavDots {
-    display: flex;
-  }
-
-  .navDot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 15px 5px;
-  }
-
-  .activeDot {
-    background-color: #333;
-  }
-
+  
   .portfolioBtn {
     padding: 4px 12px;
     font-size: 14px;
   }
+  
+  
+  //*******************************
+
 }
 
 @media screen and (max-width: 389px) {
   .fullscreenImgOverlay {
     height: 87%;
+  }
+  .closeButton {
+    top: -40px;
   }
 }

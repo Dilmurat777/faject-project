@@ -72,6 +72,7 @@ const Gallery = () => {
     return images.slice(0, limit);
   };
 
+
   // ******************** Overlay for full screen
 
   const handleFullImage = (image) => {
@@ -136,11 +137,10 @@ const Gallery = () => {
     <div>
       {fullscreen && (
         <div className={styles.fullscreenImgOverlay}>
-          <Header />
+          <div className={styles.fullscreenWrapper}>
           <button className={styles.closeButton} onClick={handleCloseFullImage}>
             <AiOutlineClose />
           </button>
-          <div className={styles.fullscreenWrapper}>
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 variants={variants}
@@ -202,6 +202,7 @@ const Gallery = () => {
                   exit="exit"
                   custom={direction}
                   transition={{
+                    type: 'tween',
                     duration: 1,
                   }}>
                   <Card
