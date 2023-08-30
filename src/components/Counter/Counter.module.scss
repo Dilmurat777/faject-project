@@ -11,13 +11,16 @@
   margin: 0 0 66px 0;
 }
 
+
 .container {
   display: flex;
   justify-content: space-between;
+  text-align: center;
   margin: 0 auto;
-  width: calc(1280px * 0.85);
+  width: calc(1282px * 0.95);
   padding: 0 20px;
 }
+
 
 .projects {
   width: 135px;

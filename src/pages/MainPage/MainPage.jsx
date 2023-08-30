@@ -10,21 +10,26 @@ import Ticker from "../../components/Ticker/Ticker.jsx";
 
 import { Suspense } from "react";
 
-
+import { Helmet } from 'react-helmet';
+import { useEffect } from 'react';
+import { HeadHelmet } from '../../components/HeadHelmet/HeadHelmet.jsx';
+import Test from '../../Test/Test.jsx';
 
 
 const MainPage = () => {
- 
+
   return (
     <>
-      <Header/>
-      <Main/>
-      <Ticker/>
-      <Services/>
-      <Portfolio/>
-      <About/>
-      <Counter/>
-      <Footer/>
+      <HeadHelmet title='Main page' description={'Beginner friendly page for learning React Helmet.'} />
+      <Header />
+      <Main />
+      <Ticker />
+      <Services />
+      <Portfolio />
+      <About />
+      <Counter />
+      <Footer />
+      {/* <Test/> */}
       {/*<CookieModal/>*/}
       {/*<SaleModal/>*/}
     </>
@@ -34,8 +39,7 @@ const MainPage = () => {
 export default function WrappedApp() {
   return (
     <Suspense fallback='...loading'>
-      <MainPage/>
+      <MainPage />
     </Suspense>
   )
 }
-

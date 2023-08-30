@@ -3,7 +3,7 @@
 }
 
 .container {
-  max-width: 1128px;
+  max-width: 1218px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -55,11 +55,16 @@
 
 .policyBtn:hover {
   background-color: #9f95ff;
-  border-color: #9f95ff;
+  border: 2px solid #9f95ff;
+}
+
+.activeBtn {
+	background-color: #9f95ff;
+	border: 2px solid #9f95ff;
 }
 
 .textContent {
-	max-width: 700px;
+	max-width: 880px;
 }
 
 .policyText {
@@ -76,11 +81,14 @@
 	margin: 20px 0 0 0;
 }
 
-.activeBtn {
-	background-color: #9f95ff;
+@media screen and (max-width: 1190px) {
+	.textContent {
+		max-width: 750px;
+	}
 }
 
-@media screen and (max-width: 1050px) {
+
+@media screen and (max-width: 1060px) {
 	.policyTitle {
 		font-size: 42px;
 	}
@@ -96,9 +104,8 @@
 		// flex-direction: row;
 		// column-gap: 10px;
 		// margin-bottom: 16px;
-		white-space: nowrap; 
+		// white-space: nowrap; 
 	}
-	
 }
 
 
@@ -110,6 +117,7 @@
 	}
 	.policyText {
 		font-size: 12px;
+		line-height: 26px;
 	}
 	.policyButtons {
 		display: flex;
@@ -126,3 +134,12 @@
 	}
 }
 
+@media screen and (max-width: 400px) { 
+	.policyBtn:nth-child(1){
+		margin-left: 30px;
+	}
+	.policyBtn:nth-child(2){
+		margin-right: 30px;
+	}
+	
+}

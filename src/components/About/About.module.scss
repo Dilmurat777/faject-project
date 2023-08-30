@@ -4,17 +4,26 @@
 }
 
 .container {
-  max-width: 1128px;
+  max-width: 1218px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .title1 {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 64px;
   font-weight: 600;
   letter-spacing: -2.56px;
 	margin-bottom: 32px;
+}
+
+.subtitle {
+	color: #FFF;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 32px;
+	margin-bottom: 20px;
 }
 
 .aboutItems {
@@ -55,6 +64,11 @@
 	.title1 {
 		font-size: 52px;
 	}
+
+	.subtitle {
+		font-size: 24px;
+	}
+
 	.imageSvg svg {
 		width: 120px;
 		height: 120px;
@@ -84,9 +98,28 @@
 	.title1 {
 		font-size: 42px;
 	}
+
+	.subtitle {
+		font-size: 18px;
+		letter-spacing: -0.9px;
+	}
 	.aboutText {
 		font-size: 14px;
 		line-height: 16px;
 		letter-spacing: .3px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.aboutItems {
+		column-gap: 10px;
+	}
+	.imageSvg svg {
+		width: 70px;
+		height: 70px;
+	}
+	.subtitle {
+		font-size: 17px;
+		letter-spacing: -0.9px;
 	}
 }

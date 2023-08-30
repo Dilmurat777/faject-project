@@ -28,6 +28,10 @@ const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
+  const [isButton1Active, setIsButton1Active] = useState(true);
+  const [isButton2Active, setIsButton2Active] = useState(false);
+
+
   useEffect(() => {
     const newProject = portfolioData.filter((project) => {
       return project.categoryEN === galleryItems || project.categoryRU === galleryItems;
@@ -51,6 +55,8 @@ const Gallery = () => {
     const nextIndex = (active + 1) % portfolioNavData.length;
     setActive(nextIndex);
     setGalleryItems(portfolioNavData[nextIndex].name);
+    setIsButton1Active(true);
+    setIsButton2Active(false);
   };
 
   const handlePrevious = () => {
@@ -58,6 +64,8 @@ const Gallery = () => {
     const prevIndex = (active - 1 + portfolioNavData.length) % portfolioNavData.length;
     setActive(prevIndex);
     setGalleryItems(portfolioNavData[prevIndex].name);
+    setIsButton1Active(false);
+    setIsButton2Active(true);
   };
 
   const getLimitedImages = (images, limit) => {
@@ -92,20 +100,24 @@ const Gallery = () => {
     return images.length;
   };
 
-  const fullscreenHandlePrevious = (event) => {
-    event.stopPropagation();
-    const totalImages = getTotalImages();
-    const previousIndex = (currentImageIndex - 1 + totalImages) % totalImages;
-    setCurrentImageIndex(previousIndex);
-    setFullscreen(getCurrentImage(previousIndex));
-  };
-
   const fullscreenHandleNext = (event) => {
     event.stopPropagation();
     const totalImages = getTotalImages();
     const nextIndex = (currentImageIndex + 1) % totalImages;
     setCurrentImageIndex(nextIndex);
     setFullscreen(getCurrentImage(nextIndex));
+    setIsButton1Active(true);
+    setIsButton2Active(false);
+  };
+
+  const fullscreenHandlePrevious = (event) => {
+    event.stopPropagation();
+    const totalImages = getTotalImages();
+    const previousIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+    setCurrentImageIndex(previousIndex);
+    setFullscreen(getCurrentImage(previousIndex));
+    setIsButton1Active(false);
+    setIsButton2Active(true);
   };
 
   const variants = {
@@ -163,12 +175,12 @@ const Gallery = () => {
 
             <div className={styles.fullscreenButtons}>
               <button
-                className={`${styles.portfolioBtn} ${styles.fullscreenBtn}`}
+                className={`${isButton2Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn} ${styles.fullscreenBtn}`}
                 onClick={fullscreenHandlePrevious}>
                 {t('buttons.back')}
               </button>
               <button
-                className={`${styles.portfolioBtn} ${styles.fullscreenBtn}`}
+                className={`${isButton1Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn} ${styles.fullscreenBtn}`}
                 onClick={fullscreenHandleNext}>
                 {t('buttons.next')}
               </button>
@@ -229,10 +241,10 @@ const Gallery = () => {
         </div>
 
         <div className={styles.portfolioButtons}>
-          <button className={styles.portfolioBtn} onClick={handlePrevious}>
+          <button className={`${isButton2Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn}`} onClick={handlePrevious}>
             {t('buttons.back')}
           </button>
-          <button className={styles.portfolioBtn} onClick={handleNext}>
+          <button className={`${isButton1Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn}`} onClick={handleNext}>
             {t('buttons.next')}
           </button>
         </div>

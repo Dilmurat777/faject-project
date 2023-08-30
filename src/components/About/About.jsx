@@ -1,17 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import HandShakeSVG from '../../assets/HandShakeSVG';
-import QuestionsSVG from '../../assets/QuestionsSVG';
-import BrainSVG from '../../assets/BrainSVG';
-import PeoplesActivitySVG from '../../assets/PeoplesActivitySVG';
+import ExperienceSVG from '../../assets/about-icons/Experience';
+import CollaborationSVG from '../../assets/about-icons/Collaboration';
+import BrainSVG from '../../assets/about-icons/Brain';
+import ThoughtfulStructureSVG from '../../assets/about-icons/ThoughtfulStructure';
 import { motion } from 'framer-motion';
 import styles from './About.module.scss';
 
-
-
 const textRight = {
   hidden: {
-    x: -150,
+    x: -180,
     opacity: 0,
   },
   visible: (custom) => ({
@@ -23,7 +21,7 @@ const textRight = {
 
 const textLeft = {
   hidden: {
-    x: 150,
+    x: 180,
     opacity: 0,
   },
   visible: (custom) => ({
@@ -38,60 +36,56 @@ const About = () => {
 
   return (
     <motion.section
-
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.2, once: true }}
       className={styles.about1}
       id={'about'}>
-
       <div className={styles.container}>
         <h2 className={styles.title1}>{t('about.title')}</h2>
 
         <div className={styles.aboutItems}>
-          <div>
-            <motion.p
-              custom={2}
-              variants={textRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ amount: 0.2, once: true }}
-              className={styles.aboutText}>
-              {t('about.text1')}
-            </motion.p>
-          </div>
-
-          <div className={styles.imageSvg}>
-            <HandShakeSVG />
-          </div>
-        </div>
-
-        <div className={styles.aboutItems}>
-          <div className={styles.imageSvg}>
-            <QuestionsSVG />
-          </div>
-
-          <div>
-            <motion.p 
-            custom={2}
-            variants={textLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2, once: true }}
-            className={styles.aboutText}>{t('about.text2')}</motion.p>
-          </div>
-        </div>
-
-        <div className={styles.aboutItems}>
-          <div>
-            <motion.p 
+          <motion.div
             custom={2}
             variants={textRight}
             initial="hidden"
             whileInView="visible"
-            viewport={{ amount: 0.2, once: true }}
-            className={styles.aboutText}>{t('about.text3')}</motion.p>
+            viewport={{ amount: 0.2, once: true }}>
+            <h1 className={styles.subtitle}>{t('about.subtitle1')}</h1>
+            <p className={styles.aboutText}>{t('about.text1')}</p>
+          </motion.div>
+
+          <div className={styles.imageSvg}>
+            <ExperienceSVG />
           </div>
+        </div>
+
+        <div className={styles.aboutItems}>
+          <div className={styles.imageSvg}>
+            <CollaborationSVG />
+          </div>
+
+          <motion.div
+            custom={2}
+            variants={textLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2, once: true }}>
+            <h1 className={styles.subtitle}>{t('about.subtitle2')}</h1>
+            <p className={styles.aboutText}>{t('about.text2')}</p>
+          </motion.div>
+        </div>
+
+        <div className={styles.aboutItems}>
+          <motion.div
+            custom={2}
+            variants={textRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2, once: true }}>
+            <h1 className={styles.subtitle}>{t('about.subtitle3')}</h1>
+            <p className={styles.aboutText}>{t('about.text3')}</p>
+          </motion.div>
 
           <div className={styles.imageSvg}>
             <BrainSVG />
@@ -100,18 +94,18 @@ const About = () => {
 
         <div className={styles.aboutItems}>
           <div className={styles.imageSvg}>
-            <PeoplesActivitySVG />
+            <ThoughtfulStructureSVG />
           </div>
 
-          <div>
-            <motion.p 
+          <motion.div
             custom={2}
             variants={textLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ amount: 0.2, once: true }}
-            className={styles.aboutText}>{t('about.text4')}</motion.p>
-          </div>
+            viewport={{ amount: 0.2, once: true }}>
+            <h1 className={styles.subtitle}>{t('about.subtitle4')}</h1>
+            <p className={styles.aboutText}>{t('about.text4')}</p>
+          </motion.div>
         </div>
       </div>
     </motion.section>
@@ -119,4 +113,3 @@ const About = () => {
 };
 
 export default About;
-

@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import HeaderPolicy from '../Policy/HeaderPolicy';
 import ArrowSVG from '../../assets/ArrowSVG';
+import HorizontalScroll from '../../UI/HorizontalScroll/HorizontalScroll';
 
 const Policy = () => {
   const { t, i18n } = useTranslation();
@@ -23,6 +24,8 @@ const Policy = () => {
         <div className={styles.container}>
           <h1 className={styles.policyTitle}>{t('policy.title')}</h1>
           <div className={styles.policyContent}>
+            <div>
+            <HorizontalScroll>
             <div className={styles.policyButtons}>
               <button
                 onClick={() => handleClick(1)}
@@ -35,7 +38,8 @@ const Policy = () => {
                 {t('policy.text-btn2')}
               </button>
             </div>
-
+            </HorizontalScroll>
+            </div>
             <div className={styles.textContent}>
               <p className={styles.policyText}>{t(`policy.text${activeText}`)}</p>
             </div>

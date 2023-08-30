@@ -38,15 +38,17 @@
 
   border-radius: 22px;
   border: 2px solid #fff;
-  opacity: 0.35;
+  transition: opacity 0.3s;
   background: #040d12;
 }
 
-.portfolioBtn:hover {
+.activeBtn {
   opacity: 0.9;
 }
 
-
+.notActive {
+  opacity: 0.35;
+}
 
 .fullscreenImgOverlay {
   display: none;
@@ -55,9 +57,6 @@
 .fullscreenImageNavDots {
   display: none;
 }
-
-
-
 
 @media (max-width: 992px) {
   .portfolioGridCategory1,
@@ -93,10 +92,9 @@
     margin-top: 0px;
   }
 
+  // ******** Overlay full screen images
 
-   // ******** Overlay full screen images
-
-	 .fullscreenImgOverlay {
+  .fullscreenImgOverlay {
     position: fixed;
 
     top: 68px;
@@ -120,13 +118,13 @@
     justify-content: center;
     align-items: center;
     height: 80%;
-    padding: 0 20px;
+    padding: 0 12px;
   }
 
   .fullscreenImage {
     max-width: 100%;
     height: 400px;
-    object-fit:cover;
+    object-fit: cover;
   }
 
   .closeButton {
@@ -147,11 +145,11 @@
   }
 
   .fullscreenText {
-    font-family: "Montserrat" sans-serif;
+    font-family: 'Montserrat' sans-serif;
     font-size: 11px;
     font-weight: 500;
     line-height: 20px;
-    letter-spacing: .7px;
+    letter-spacing: 0.7px;
     margin-bottom: 20px;
   }
 
@@ -190,9 +188,7 @@
     padding: 4px 12px;
     font-size: 14px;
   }
-
 }
-
 
 @media screen and (max-width: 389px) {
   .fullscreenImgOverlay {

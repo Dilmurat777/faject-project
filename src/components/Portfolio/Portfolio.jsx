@@ -9,13 +9,13 @@ const Portfolio = () => {
 	const {t, i18n } = useTranslation()
 
 	useEffect(()=>{
-	  async function fetchData() {
+		async function fetchData() {
 		const response = await portfolioAPI.getAll()
   
-		console.log(response)
-	  }
+		// console.log(response)
+	}
   
-	  fetchData()
+		fetchData()
   
 	},[])
 

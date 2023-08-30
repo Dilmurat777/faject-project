@@ -6,7 +6,7 @@ import servicesAPI from './../../serviceApi/services.api';
 import { useEffect } from 'react';
 
 
-const MemoizedSelect = React.memo(function Select({onChange, value}) {
+const MemoizedSelect = React.memo(function Select({onChange, value, isRequired}) {
   const { t } = useTranslation()
   const [options, setOptions] = useState([])
 
@@ -21,17 +21,11 @@ const MemoizedSelect = React.memo(function Select({onChange, value}) {
 
 
   return <div className={classes.custom_select}>
-  <select id="service" name="service" defaultValue={'Website development'} value={value} onChange={onChange}>
-    <option defaultValue={`${t('form.placeholder3')}`} disabled>
+  <select id="service" name="service" value={value === '' ? t('form.ChooseService'): value} onChange={onChange} required={isRequired}>
+    <option disabled>
       {`${t('form.ChooseService')}`}
     </option>
     {options.map((option, index)=><option value={option.service_title}>{t(`form.textForm${index+1}`)}</option>)}
-    {/* <option value="Website development">{`${t('form.textForm1')}`}</option>
-    <option value="Bot development">{`${t('form.textForm2')}`}</option>
-    <option value="SMM">SMM</option>
-    <option value="SEO">SEO</option>
-    <option value="Mobile Development">{`${t('form.textForm3')}`}</option>
-    <option value="Contextual advertising">{`${t('form.textForm4')}`}</option> */}
   </select>
 </div>
 })
@@ -111,7 +105,7 @@ const BookForm = ({ dispatch }) => {
             placeholder={`${t('form.placeholder5')}`}
           />
         </div> */}
-      <MemoizedSelect value={formData.service} onChange={handleInputChange} /> 
+      <MemoizedSelect value={formData.service} onChange={handleInputChange} isRequired={true} /> 
       <div className={classes.custom_textarea}>
         <textarea
           rows="2"
