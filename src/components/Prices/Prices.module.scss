@@ -1,0 +1,23 @@
+.prices {
+	padding: 66px 0;
+	width: 100%;
+	background-image: url('../../assets//PricesImage/price-bg.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.container {
+  max-width: 1218px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.priceItems {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 60px;
+}
+

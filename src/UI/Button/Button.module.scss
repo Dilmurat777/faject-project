@@ -34,6 +34,13 @@ button:disabled{
   opacity: 0.35;
   background: #040D12;
 }
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 4px 12px;
+  }
+}
+
 @media (max-width: 550px) {
   .btn {
     padding: 0 10px 0 10px;

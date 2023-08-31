@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #040D11;
+  background-color: #040d11;
 }
 
 .container {
@@ -15,15 +15,12 @@
 
 .header {
   padding: 25px 0;
- 
   font-size: 16px;
-  color: #FFF;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // height: 100px;
-  // white-space: nowrap;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .left {
@@ -31,6 +28,18 @@
   display: flex;
   align-items: center;
   justify-content: left;
+  gap: 18px;
+}
+
+.headerMenu {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
   gap: 18px;
 }
 
@@ -49,49 +58,129 @@
   align-items: center;
   gap: 0 8px;
   cursor: pointer;
-
-  & p {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 32px;
-    letter-spacing: -0.16px;
-  }
 }
+
+.button {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.16px;
+  background-color: transparent;
+}
+
+// Menu
+
+.menuBtn {
+  display: none;
+}
+
+.menuLogo {
+  display: none;
+}
+
+.headerAnchor {
+  display: none;
+}
+
+.navbarSocial {
+  display: none;
+ }
 
 @media screen and (max-width: 1130px) {
- 
 }
 @media screen and (max-width: 992px) {
-  
-
 }
 @media screen and (max-width: 768px) {
-  .anchor {
-    display: none;
+
+  .menuLogo {
+    display: block;
+    margin-top: 20px;
   }
 
-  // .languageSelect {
-  //   display: none;
-  // }
+  .headerAnchor {
+    display: block;
+  }
+
+  .menuLogo svg path {
+    fill: #040D12;
+  }
+
+  .menuBtn {
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    z-index: 40;
+    cursor: pointer;
+  }
+
+  .right {
+   margin-right: 50px;
+  }
+
+  .link {
+    color: #040D12;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .headerMenu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #ffffff;
+    right: -100%;
+    bottom: 0;
+    width: 60%;
+    height: 100%;
+    transition: right .6s;
+    z-index: 30;
+    gap: 30px;
+    border-radius: 22px;
+  }
+
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .active {
+    right: 0;
+  }
+
+  .navbarSocial {
+    display: flex;
+    gap: 20px;
+   }
+ 
 }
 
 @media screen and (max-width: 550px) {
-
-  .header {
-    padding: 12px 0;
-  }
-
-  .anchor {
-    display: none;
-  }
 
   .languageSelect {
     display: none;
   }
+
+  // .headerMenu {
+  //   align-items: flex-start;
+  //   padding: 0 0 0 50px;
+  // }
 }
 
-@media screen and (max-width: 550px) {
-  .header {
-    padding: 10px 0;
+@media screen and (max-width: 400px) {
+  .headerLogo svg {
+    width: 125px;
+    height: 40px;
+  }
+
+  .right {
+    margin-right: 40px;
+   }
+   .button {
+    font-size: 11px;
+    letter-spacing: -0.02px;
   }
 }

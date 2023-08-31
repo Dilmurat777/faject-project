@@ -40,7 +40,7 @@ const Gallery = () => {
   }, [galleryItems]);
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 4000);
+    const interval = setInterval(handleNext, 8000);
     return () => clearInterval(interval);
   }, [active]);
   const handelNavClick = (item, index) => {
@@ -156,6 +156,7 @@ const Gallery = () => {
                 key={fullscreen}
                 alt="full screen images"
               />
+
             </AnimatePresence>
             <div className={styles.fullscreenImageNavDots}>
               {getCurrentImages().map((item, index) => (
@@ -168,7 +169,7 @@ const Gallery = () => {
                     setCurrentImageIndex(index); // Update the current image index
                     setFullscreen(getCurrentImage(index)); // Update the displayed fullscreen image
                   }}></div>
-              ))}
+                  ))}
             </div>
 
             <p className={styles.fullscreenText}>{t('portfolio.desc')}</p>
@@ -188,6 +189,7 @@ const Gallery = () => {
           </div>
         </div>
       )}
+
 
       <Buttons handelNavClick={handelNavClick} active={active} />
       <div>

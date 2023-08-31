@@ -14,6 +14,7 @@ import { Helmet } from 'react-helmet';
 import { useEffect } from 'react';
 import { HeadHelmet } from '../../components/HeadHelmet/HeadHelmet.jsx';
 import Test from '../../Test/Test.jsx';
+import Prices from '../../components/Prices/Prices.jsx';
 
 
 const MainPage = () => {
@@ -26,6 +27,7 @@ const MainPage = () => {
       <Ticker />
       <Services />
       <Portfolio />
+      <Prices/>
       <About />
       <Counter />
       <Footer />

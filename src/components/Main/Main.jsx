@@ -18,7 +18,7 @@ const Main = () => {
   };
 
   return (
-    <section className={s.home}>
+    <section className={s.home} id={'home'}>
       <div className={s.container}>
         <div className={s.homeBlog}>
           <div className={s.homeInfo}>

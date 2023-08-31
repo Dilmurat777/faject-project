@@ -1,15 +1,13 @@
-import s from './Footer.module.scss';
-import Instagram from '../../assets/SocialImages/Instagram.jsx';
-import Telegram from '../../assets/SocialImages/Telegram.jsx';
-import WhatsApp from '../../assets/SocialImages/WhatsApp.jsx';
 import { useTranslation } from 'react-i18next';
 import Language from '../Language/Language';
 import { Link } from 'react-router-dom';
+import SocialLinks from './SocialLinks';
+import s from './Footer.module.scss';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
   return (
-    <div className={s.footer}>
+    <div className={s.footer} id={'footer'}>
       <div className={s.container}>
         <div className={s.footerItems}>
           <div className={`${s.languages} ${s.div4}`}>
@@ -26,20 +24,7 @@ const Footer = () => {
           </Link>
          </div>
 
-          <div className={`${s.footerSocial} ${s.div2}`}>
-            <p className={s.footerSocialText}>{t('footer.text1')}</p>
-            <div className={s.footerSocialLinks}>
-              <a href="https://www.instagram.com/faject/" target="_blank" className={s.link}>
-                <Instagram />
-              </a>
-              <a href="https://t.me/faject_studio" target="_blank" className={s.link}>
-                <Telegram />
-              </a>
-              <a href="https://wa.me/998990277860" target="_blank" className={s.link}>
-                <WhatsApp />
-              </a>
-            </div>
-          </div>
+         <SocialLinks/>
 
           <div className={`${s.footerAddress} ${s.div1}`}>
             <p className={s.footerText}>

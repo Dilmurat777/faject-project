@@ -2,6 +2,8 @@
   "header": {
     "nav-text1": "Portfolio",
     "nav-text2": "About us",
+    "nav-text3": "Prices",
+    "nav-text4": "Contacts",
     "btn-text": "Order a project"
   },
   "form": {
