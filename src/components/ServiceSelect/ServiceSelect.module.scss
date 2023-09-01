@@ -1,0 +1,30 @@
+.custom_select {
+    position: relative;
+    margin-bottom: 19px;
+  }
+  
+  .custom_select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+  }
+  
+  .custom_select::after {
+    content: "";
+    position: absolute;
+    pointer-events: stroke;
+    top: 17px;
+    right: 15px;
+    width: 14px;
+    height: 8px;
+    background: url('../../assets/select-arrow.svg') no-repeat center;
+  }
+  
+  .custom_select option {
+    color: #fff;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+  }

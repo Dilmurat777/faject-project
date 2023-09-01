@@ -43,13 +43,12 @@
   "portfolio": {
     "title": "Portfolio",
     "desc": "Creating branding for a depo startup is the process of developing a unique and memorable logo, corporate identity and other brand elements that will help distinguish the project in the market and attract the attention of potential customers.",
-    "portfolio1": "Website development",
-    "portfolio2": "Bot development",
-    "portfolio3": "SMM",
-    "portfolio4": "SEO",
-    "portfolio5": "Mobile Development",
-    "portfolio6": "Contextual advertising"
-
+    "portfolio2": "Website development",
+    "portfolio3": "Bot development",
+    "portfolio4": "SMM",
+    "portfolio5": "SEO",
+    "portfolio6": "Mobile Development",
+    "portfolio7": "Contextual advertising"
   },
   "about": {
     "title": "About us",

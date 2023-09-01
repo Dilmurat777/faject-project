@@ -1,15 +1,14 @@
 .prices {
 	padding: 66px 0;
-	width: 100%;
-	background-image: url('../../assets//PricesImage/price-bg.png');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 .container {
   max-width: 1218px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.priceBlock {
+	display: flex;
 }
 
 .priceItems {
@@ -21,3 +20,21 @@
 	gap: 60px;
 }
 
+@media (max-width: 1250px) {
+	.priceItems {
+		gap: 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.prices {
+		padding: 33px 0;
+		
+	}
+	// .container {
+	// 	padding: 0 0px;
+	// }
+	.priceItems {
+		flex-wrap: nowrap;
+	}
+}

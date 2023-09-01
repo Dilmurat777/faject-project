@@ -1,51 +1,38 @@
 import s from './Dropdown.module.scss';
 import clsx from 'clsx';
 import i18n from '../../../i18n';
+import { useTranslation } from 'react-i18next';
 
 const locales = {
-  en: { title1: 'EN' },
-  ru: { title2: 'RU' },
+  en: 'EN',
+  ru: 'RU',
 };
 
 const Dropdown = ({ handleLanguageSelect, activeDropdown }) => {
+  
+  const {i18n: {languages}} = useTranslation()
+  
   return (
     <ul
       className={clsx(s.dropdownContent, {
         [s.activeDropdown]: activeDropdown,
       })}
     >
-      <li className={s.dropdownContentLi}>
+      {languages.map((lang, index)=>
+      <li className={s.dropdownContentLi} key={index}>
         <div className={s.dropdownContentBtn}>
-          {Object.keys(locales).map((locale) => (
             <span
               className={s.buttonLang}
-              key={locale}
+              key={lang}
               onClick={() => {
-                handleLanguageSelect(locale);
-                i18n.changeLanguage(locale);
+                handleLanguageSelect(lang);
               }}
             >
-              {locales[locale].title1}
+              {locales[lang]}
             </span>
-          ))}
         </div>
       </li>
-      <li className={s.dropdownContentLi}>
-        <div className={s.dropdownContentBtn}>
-          {Object.keys(locales).map((locale) => (
-            <span
-              className={s.buttonLang}
-              key={locale}
-              onClick={() => {
-                handleLanguageSelect(locale);
-                i18n.changeLanguage(locale);
-              }}
-            >
-              {locales[locale].title2}
-            </span>
-          ))}
-        </div>
-      </li>
+      )}
     </ul>
   );
 };

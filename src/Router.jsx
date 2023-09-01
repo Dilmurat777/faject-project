@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import MainPage from "./pages/MainPage/MainPage";
-import OrderPage from "./pages/OrderPage/OrderPage.jsx";
-import Policy from './pages/Policy/Policy';
+import OrderPage from './pages/OrderPage/OrderPage';
+import MainPage from './pages/MainPage/MainPage';
+import PolicyPage from './pages/PolicyPage/PolicyPage';
 
 
 const Router = () => {
@@ -10,7 +10,7 @@ const Router = () => {
         <Routes>
             <Route path={'/'} element={<MainPage />} />
             <Route path={'/order'} element={<OrderPage />} />
-            <Route path={'/policy'} element={<Policy />} />
+            <Route path={'/policy'} element={<PolicyPage />} />
         </Routes>
     );
 };

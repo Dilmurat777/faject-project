@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "../../components/Header/Header.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Portfolio from "../../components/Portfolio/Portfolio.jsx";
@@ -7,21 +7,42 @@ import Counter from "../../components/Counter/Counter.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Main from "../../components/Main/Main.jsx";
 import Ticker from "../../components/Ticker/Ticker.jsx";
-
-import { Suspense } from "react";
-
-import { Helmet } from 'react-helmet';
-import { useEffect } from 'react';
 import { HeadHelmet } from '../../components/HeadHelmet/HeadHelmet.jsx';
-import Test from '../../Test/Test.jsx';
 import Prices from '../../components/Prices/Prices.jsx';
+import PropagateLoader from "react-spinners/PropagateLoader";
+
+
+// import { Suspense } from "react";
+// import Test from '../../Test/Test.jsx';
+// import { Helmet } from 'react-helmet';
+// import { useEffect } from 'react';
 
 
 const MainPage = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 4000)
+  }, [])
 
   return (
     <>
-      <HeadHelmet title='Main page' description={'Beginner friendly page for learning React Helmet.'} />
+    {/* {
+      loading ?   
+      <PropagateLoader
+      color={'#9f95ff'}
+      loading={loading}
+      style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh', }}
+      size={50}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+    />
+    : */}
+     <>
+       <HeadHelmet title='Main page' description={'Beginner friendly page for learning React Helmet.'} /> {/* write here your meta for Main page*/}
       <Header />
       <Main />
       <Ticker />
@@ -34,14 +55,10 @@ const MainPage = () => {
       {/* <Test/> */}
       {/*<CookieModal/>*/}
       {/*<SaleModal/>*/}
+     </>
+    {/* } */}
     </>
   );
 };
 
-export default function WrappedApp() {
-  return (
-    <Suspense fallback='...loading'>
-      <MainPage />
-    </Suspense>
-  )
-}
+export default MainPage

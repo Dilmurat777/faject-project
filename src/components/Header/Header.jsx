@@ -42,13 +42,13 @@ const Header = ({ showPopupButton = true }) => {
                     <div className={s.link}>{t('header.nav-text1')}</div>
                   </AnchorLink>
                 </div>
-                <div className={s.anchor}>
-                  <AnchorLink href="#about">
+                <div className={`${s.anchor} ${s.headerAnchor}`}>
+                  <AnchorLink href="#prices">
                     <div className={s.link}>{t('header.nav-text2')}</div>
                   </AnchorLink>
                 </div>
-                <div className={`${s.anchor} ${s.headerAnchor}`}>
-                  <AnchorLink href="#prices">
+                <div className={s.anchor}>
+                  <AnchorLink href="#about">
                     <div className={s.link}>{t('header.nav-text3')}</div>
                   </AnchorLink>
                 </div>
@@ -74,7 +74,7 @@ const Header = ({ showPopupButton = true }) => {
             )}
             <div onClick={() => setNav(!nav)} className={s.menuBtn}>
               {nav ? (
-                <AiOutlineClose size={25} style={{ color: 'black' }} />
+                <AiOutlineClose size={25} style={{ color: 'black'}} />
               ) : (
                 <AiOutlineMenu size={25} />
               )}

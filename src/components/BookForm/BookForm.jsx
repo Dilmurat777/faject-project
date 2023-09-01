@@ -1,34 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from "./BookForm.module.scss";
 import { useTranslation } from 'react-i18next';
 import contactAPI from '../../serviceApi/contact.api';
-import servicesAPI from './../../serviceApi/services.api';
-import { useEffect } from 'react';
-
-
-const MemoizedSelect = React.memo(function Select({onChange, value, isRequired}) {
-  const { t } = useTranslation()
-  const [options, setOptions] = useState([])
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await servicesAPI.getAll()
-      setOptions(response)
-    }
-
-    fetchData()
-  }, [])
-
-
-  return <div className={classes.custom_select}>
-  <select id="service" name="service" value={value === '' ? t('form.ChooseService'): value} onChange={onChange} required={isRequired}>
-    <option disabled>
-      {`${t('form.ChooseService')}`}
-    </option>
-    {options.map((option, index)=><option value={option.service_title}>{t(`form.textForm${index+1}`)}</option>)}
-  </select>
-</div>
-})
+import Input from '../../UI/Input/Input';
+import ServiceSelect from '../ServiceSelect/ServiceSelect';
 
 const BookForm = ({ dispatch }) => {
   const { t } = useTranslation()
@@ -41,22 +16,33 @@ const BookForm = ({ dispatch }) => {
   });
 
   const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
-      }));
+    let name = event.target.name;
+    let value = event.target.value;
+
+    if(name === 'phone') {
+      if(value.length === 1 && !value.includes('+')) {
+        value = '+' + value
+      } else {
+        value
+      }
     }
-  
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const newData = { // TODO: what data key need to use?
+    const newData = {
       customer_name: formData.name,
-      customer_telegram_name: '@test',
+      // customer_telegram_name: '@test',
       customer_phone_number: formData.phone,
-      customer_service_choice: '3'
+      customer_service_choice: formData.service,
+      comment: formData.comment
     }
 
     try {
@@ -74,18 +60,21 @@ const BookForm = ({ dispatch }) => {
     >
       <h2 className="title">{t('form.title')}</h2>
       <div className={classes.custom_input}>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          placeholder={`${t('form.placeholder1')}`}
-          required
-        />
+        <Input id="name" name="name" value={formData.name} setValue={handleInputChange} placeholder={`${t('form.placeholder1')}`} required/>
       </div>
       <div className={classes.custom_input}>
-        <input
+        <Input 
+          type="tel"
+          id="phone"
+          name="phone"
+          title='Format: +1234567890'
+          value={formData.phone}
+          setValue={handleInputChange} 
+          pattern="^\+[0-9]{1,6}-?[0-9]{1,14}$" 
+          placeholder={`${t('form.placeholder2')}`} 
+          required={true}
+        />
+        {/* <input
           type="tel"
           id="phone"
           name="phone"
@@ -94,7 +83,7 @@ const BookForm = ({ dispatch }) => {
           pattern="^\+?[0-9]{1,3}-?[0-9]{1,5}-?[0-9]{1,5}$"
           placeholder={`${t('form.placeholder2')}`}
           required
-        />
+        /> */}
       </div>
       {/* <div className={classes.custom_input}>
           <input
@@ -105,7 +94,7 @@ const BookForm = ({ dispatch }) => {
             placeholder={`${t('form.placeholder5')}`}
           />
         </div> */}
-      <MemoizedSelect value={formData.service} onChange={handleInputChange} isRequired={true} /> 
+      <ServiceSelect value={formData.service} onChange={handleInputChange} isRequired={true} />
       <div className={classes.custom_textarea}>
         <textarea
           rows="2"

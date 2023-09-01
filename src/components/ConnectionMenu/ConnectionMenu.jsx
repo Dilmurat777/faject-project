@@ -1,14 +1,6 @@
 import { useState } from 'react';
-import {
-  Close,
-  Contact,
-  Instagram,
-  Phone,
-  Telegram,
-  WhatsApp,
-} from '../../assets/ConnectionMenuIcons/ConnectionMenuIconsSVG';
 import ContactsStyles from './ConnectionMenu.module.scss';
-import Button from '../../UI/Button/Button';
+import { TelegramSVG, InstagramSVG, PhoneSVG, WhatsAppSVG, ContactSVG, CloseSVG } from '../../assets/ConnectionMenuIcons';
 
 const ConnectionMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,27 +15,27 @@ const ConnectionMenu = () => {
         <div
           className={`${ContactsStyles.share_button} ${isOpen ? ContactsStyles.open : ''}`}
           onClick={toggleMenu}>
-          {isOpen ? <Close /> : <Contact />}
+          {isOpen ? <CloseSVG /> : <ContactSVG />}
         </div>
         <div className={`${ContactsStyles.list} ${isOpen ? ContactsStyles.active : ''}`}>
           <div>
             <a href="tel:+998990277860" target='_blank'>
-              <Phone />
+              <PhoneSVG />
             </a>
           </div>
           <div>
             <a href='https://t.me/faject_studio' target='_blank'>
-              <Telegram />
+              <TelegramSVG />
             </a>
           </div>
           <div>
             <a href='https://www.instagram.com/faject/' target='_blank'>
-              <Instagram />
+              <InstagramSVG />
             </a>
           </div>
           <div>
             <a href="https://wa.me/998990277860" target='_blank'>
-              <WhatsApp className={ContactsStyles.WhatsApp}/>
+              <WhatsAppSVG className={ContactsStyles.WhatsApp}/>
             </a>
           </div>
         </div>

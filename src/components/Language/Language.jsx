@@ -8,11 +8,9 @@ import { useEffect } from 'react';
 
 const Language = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const i18n = useTranslation();
-  const { language, languages } = i18n.i18n;
+  const {t, i18n} = useTranslation();
+  const { language, languages, changeLanguage } = i18n;
   const [selectedLanguage, setSelectedLanguage] = useState(language === 'ru' ? 'RU' : 'EN');
-
-
 
   useEffect(() => {
 
@@ -25,6 +23,7 @@ const Language = () => {
 
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language === 'ru' ? 'RU' : 'EN');
+    changeLanguage(language)
     setShowDropdown(false);
   };
 // debugger

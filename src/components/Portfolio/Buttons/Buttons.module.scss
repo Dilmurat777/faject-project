@@ -9,11 +9,11 @@
   flex-wrap: nowrap;
   margin: 32px 0;
   width: 100%;
-  gap: 2px;
+  gap: 10px;
+  font-family: 'Kanit' sans-serif;
 }
 
 .buttonItem {
-  font-family: 'Kanit' sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 32px;
@@ -22,8 +22,8 @@
   color: #fff;
   padding: 4px 14px;
 
-  border-radius: 22px;
-  border: 2px solid #fff;
+  border-radius: 20px;
+  border: 3px solid #fff;
   background: #040d12;
 
   transition: all 0.3s ease-in-out;
@@ -34,12 +34,11 @@
   flex-direction: column;
   flex: auto;
   align-items: center;
-  
 }
 
 .activeButtonItem {
-  background-color: #9f95ff;
-  border: 2px solid #9f95ff;
+  background-color: #776DC3;
+  border: 2px solid #776DC3;
 }
 
 // Media

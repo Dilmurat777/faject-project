@@ -4,6 +4,7 @@ import styles from './PricesCard.module.scss';
 
 const PricesCard = ({ title, desc1, desc2, desc3, desc4, desc5, desc6, price }) => {
   return (
+    
     <div className={styles.pricesCard}>
       <h3 className={styles.pricesTitle}>{title}</h3>
       <div className={styles.pricesDesc}><IconServices/>{desc1}</div>

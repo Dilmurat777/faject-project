@@ -1,4 +1,4 @@
-export const PricesData = [
+export const PricesData1 = [
   {
     id: 1,
     title: 'Разработка веб-сайта',
@@ -12,7 +12,7 @@ export const PricesData = [
   },
   {
     id: 2,
-    title: 'Разработка веб-сайта',
+    title: 'Разработка бота',
     desc1: 'Брифинг',
     desc2: 'Анализ рынка',
     desc3: 'Создание концепции',
@@ -23,7 +23,7 @@ export const PricesData = [
   },
   {
     id: 3,
-    title: 'Разработка веб-сайта',
+    title: 'SEO',
     desc1: 'Брифинг',
     desc2: 'Анализ рынка',
     desc3: 'Создание концепции',
@@ -32,9 +32,12 @@ export const PricesData = [
     desc6: 'Верстка',
     price: '100 000',
   },
+];
+
+export const PricesData2 = [
   {
     id: 4,
-    title: 'Разработка веб-сайта',
+    title: 'SMM',
     desc1: 'Брифинг',
     desc2: 'Анализ рынка',
     desc3: 'Создание концепции',
@@ -45,7 +48,7 @@ export const PricesData = [
   },
   {
     id: 5,
-    title: 'Разработка веб-сайта',
+    title: 'Контекстная реклама',
     desc1: 'Брифинг',
     desc2: 'Анализ рынка',
     desc3: 'Создание концепции',
@@ -56,7 +59,7 @@ export const PricesData = [
   },
   {
     id: 6,
-    title: 'Разработка веб-сайта',
+    title: 'Мобильная разработка',
     desc1: 'Брифинг',
     desc2: 'Анализ рынка',
     desc3: 'Создание концепции',
@@ -65,5 +68,4 @@ export const PricesData = [
     desc6: 'Верстка',
     price: '100 000',
   },
-	
-];
+]

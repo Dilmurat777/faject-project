@@ -1,0 +1,145 @@
+.policy {
+  margin: 90px 0 66px 0;
+}
+
+.container {
+  max-width: 1218px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.policyTitle {
+  font-size: 64px;
+  font-weight: 600;
+  letter-spacing: -2.56px;
+  margin-bottom: 32px;
+}
+
+.policyContent {
+  display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.policyButtons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+}
+
+.policyBtn:nth-child(1){
+	max-width: 210px;
+}
+.policyBtn:nth-child(2){
+	max-width: 250px;
+}
+.policyBtn {
+  font-size: 14px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
+  line-height: 32px;
+	letter-spacing: -0.17px;
+  text-align: center;
+
+  padding: 4px 14px;
+  color: #fff;
+  background-color: #040d12;
+  user-select: none;
+
+  border: 2px solid #fff;
+  border-radius: 20px;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+	// white-space:pre;
+}
+
+.policyBtn:hover {
+  background-color: #9f95ff;
+  border: 2px solid #9f95ff;
+}
+
+.activeBtn {
+	background-color: #9f95ff;
+	border: 2px solid #9f95ff;
+}
+
+.textContent {
+	max-width: 880px;
+}
+
+.policyText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.16px;
+}
+
+.arrowBtn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 20px 0 0 0;
+}
+
+@media screen and (max-width: 1190px) {
+	.textContent {
+		max-width: 750px;
+	}
+}
+
+
+@media screen and (max-width: 1060px) {
+	.policyTitle {
+		font-size: 42px;
+	}
+	.policyText {
+		max-width: 600px;
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 922px) {
+	.policyButtons {
+		// display: flex;
+		// flex-direction: row;
+		// column-gap: 10px;
+		// margin-bottom: 16px;
+		// white-space: nowrap; 
+	}
+}
+
+
+@media screen and (max-width: 768px) { 
+	.policyContent {
+		display: flex;
+		flex-direction: column;
+		gap: 0px;
+	}
+	.policyText {
+		font-size: 12px;
+		line-height: 26px;
+	}
+	.policyButtons {
+		display: flex;
+		flex-direction: row;
+		column-gap: 10px;
+		margin-bottom: 16px;
+	}
+	.policyBtn {
+		font-size: 14px;
+		padding: 0px 10px;
+
+		cursor: pointer;
+		// white-space:pre;
+	}
+}
+
+@media screen and (max-width: 400px) { 
+	.policyBtn:nth-child(1){
+		margin-left: 30px;
+	}
+	.policyBtn:nth-child(2){
+		margin-right: 30px;
+	}
+	
+}

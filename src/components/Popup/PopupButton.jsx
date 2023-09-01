@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import FormDownArrowSVG from "../../assets/FormDownArrowSVG";
 import { useEffect } from "react";
 import SuccessSVG from "../../assets/SuccessSVG";
-import { FailedSVG } from "../../assets/FailedSVG";
+import FailedSVG from "../../assets/FailedSVG";
 
 function concatClassNames(...classNames) {
   return classNames.filter(className => !!className).join(' ');

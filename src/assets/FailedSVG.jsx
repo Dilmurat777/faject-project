@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const FailedSVG = () => {
+const FailedSVG = () => {
     return (
         <svg
             width="53px"
@@ -32,3 +32,5 @@ export const FailedSVG = () => {
         </svg>
     )
 }
+
+export default FailedSVG
