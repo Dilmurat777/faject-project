@@ -1,22 +1,22 @@
 import React from 'react';
 import styles from './Buttons.module.scss';
+import { portfolioNavData } from '../data';
 import { useTranslation } from 'react-i18next';
 import HorizontalScroll from '../../../UI/HorizontalScroll/HorizontalScroll';
-import useServiceOptions from '../../../hooks/useServiceOptions';
 
-const Buttons = ({ items, handleNavClick, active }) => {
+const Buttons = ({ handelNavClick, active }) => {
   const { t, i18n } = useTranslation();
 
   return (
     <div>
       <HorizontalScroll>
         <div className={styles.buttonItems}>
-          {items.map((item, index) => (
+          {portfolioNavData.map((item, index) => (
             <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id, index)}
+              key={index}
+              onClick={() => handelNavClick(t('portfolio.portfolio' + (index + 1)), index)}
               className={`${active === index ? styles.activeButtonItem : ''} ${styles.buttonItem}`}>
-              {t('portfolio.portfolio' + (item.id))}
+              {t('portfolio.portfolio' + (index + 1))}
             </button>
           ))}
         </div>

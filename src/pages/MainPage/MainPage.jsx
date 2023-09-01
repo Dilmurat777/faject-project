@@ -25,22 +25,22 @@ const MainPage = () => {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 4000)
+    }, 3000)
   }, [])
 
   return (
     <>
-    {/* {
+    {
       loading ?   
       <PropagateLoader
       color={'#9f95ff'}
       loading={loading}
       style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh', }}
-      size={50}
+      size={20}
       aria-label="Loading Spinner"
       data-testid="loader"
     />
-    : */}
+    : 
      <>
        <HeadHelmet title='Main page' description={'Beginner friendly page for learning React Helmet.'} /> {/* write here your meta for Main page*/}
       <Header />
@@ -56,7 +56,7 @@ const MainPage = () => {
       {/*<CookieModal/>*/}
       {/*<SaleModal/>*/}
      </>
-    {/* } */}
+     } 
     </>
   );
 };
