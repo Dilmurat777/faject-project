@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { portfolioNavData, portfolioData } from '../data';
 import Card from '../Card/Card';
 import Buttons from '../Buttons/Buttons';
 import { AiOutlineClose } from 'react-icons/ai';
+import Header from '../../Header/Header';
 import { useTranslation } from 'react-i18next';
 import styles from './Gallery.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
-import portfolioAPI from '../../../serviceApi/portfolio.api';
-import useServiceOptions from '../../../hooks/useServiceOptions';
 
-// import { portfolioNavData, portfolioData } from '../data';
-// import Header from '../../Header/Header';
+const categoryDefault = 'Разработка веб-сайта';
 
 function splitArrayInHalf(arr) {
   const middleIndex = Math.floor(arr.length / 2);
@@ -20,37 +19,51 @@ function splitArrayInHalf(arr) {
 
 const Gallery = () => {
   const { t, i18n } = useTranslation();
-  const [portfolios, setPortfolios] = useState([]);
 
-  const [galleryService, setGalleryService] = useState(2);
+  const [galleryItems, setGalleryItems] = useState(categoryDefault);
   const [filterProject, setFilterProject] = useState([]);
   const [active, setActive] = useState(0);
   const [fullscreen, setFullscreen] = useState(null);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [direction, setDirection] = useState(0);
 
   const [isButton1Active, setIsButton1Active] = useState(true);
   const [isButton2Active, setIsButton2Active] = useState(false);
 
-  const [options] = useServiceOptions([]);
+
+  useEffect(() => {
+    const newProject = portfolioData.filter((project) => {
+      return project.categoryEN === galleryItems || project.categoryRU === galleryItems;
+    });
+    setFilterProject(newProject);
+  }, [galleryItems]);
+
+  useEffect(() => {
+    const interval = setInterval(handleNext, 4000);
+    return () => clearInterval(interval);
+  }, [active]);
+  const handelNavClick = (item, index) => {
+    setGalleryItems(item);
+    setActive(index);
+  };
 
   const [firstHalf, secondHalf] = splitArrayInHalf(filterProject);
 
   const handleNext = () => {
     setDirection(+1);
-    const nextIndex = (active + 1) % options.length;
+    const nextIndex = (active + 1) % portfolioNavData.length;
     setActive(nextIndex);
-    setGalleryService(options[nextIndex].id);
+    setGalleryItems(portfolioNavData[nextIndex].name);
     setIsButton1Active(true);
     setIsButton2Active(false);
   };
 
   const handlePrevious = () => {
     setDirection(-1);
-    const prevIndex = (active - 1 + options.length) % options.length;
+    const prevIndex = (active - 1 + portfolioNavData.length) % portfolioNavData.length;
     setActive(prevIndex);
-    setGalleryService(options[prevIndex].id);
+    setGalleryItems(portfolioNavData[prevIndex].name);
     setIsButton1Active(false);
     setIsButton2Active(true);
   };
@@ -72,15 +85,13 @@ const Gallery = () => {
   const getCurrentImage = (index) => {
     // Получение URL текущего изображения по индексу
     const images = getCurrentImages();
-    return images[index]?.portfolio_header_image;
+    return images[index]?.image;
   };
 
   const getCurrentImages = () => {
-    const result = portfolios.filter((project) => {
-      return +project.portfolio_service_category.id === galleryService;
+    return portfolioData.filter((project) => {
+      return project.categoryEN === galleryItems || project.categoryRU === galleryItems;
     });
-
-    return result;
   };
 
   const getTotalImages = () => {
@@ -121,54 +132,14 @@ const Gallery = () => {
     },
   };
 
-  useEffect(() => {
-    let interval = 0;
-    if (options.length > 0) {
-      interval = setInterval(handleNext, 8000);
-    }
-    return () => clearInterval(interval);
-  }, [active, options]);
-
-  const handleNavClick = (id, index) => {
-    setDirection(active > index ? -1 : 1); // change > to < if you want to change direction of slider
-    setGalleryService(id);
-    setActive(index);
-  };
-
-  useEffect(() => {
-    const result = portfolios.filter((project) => {
-      return +project.portfolio_service_category.id === galleryService;
-    });
-
-    setFilterProject(result);
-  }, [portfolios, galleryService]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await portfolioAPI.getAll();
-
-      setPortfolios(response);
-    }
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (options.length > 0) {
-      setGalleryService(options[0]?.id);
-    } else {
-      setGalleryService(1);
-    }
-  }, [options.length]);
-
   return (
     <div>
       {fullscreen && (
         <div className={styles.fullscreenImgOverlay}>
+          <button className={styles.closeButton} onClick={handleCloseFullImage}>
+            <AiOutlineClose />
+          </button>
           <div className={styles.fullscreenWrapper}>
-            <button className={styles.closeButton} onClick={handleCloseFullImage}>
-              <AiOutlineClose />
-            </button>
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 variants={variants}
@@ -203,16 +174,12 @@ const Gallery = () => {
 
             <div className={styles.fullscreenButtons}>
               <button
-                className={`${isButton2Active === true ? styles.activeBtn : styles.notActive} ${
-                  styles.portfolioBtn
-                } ${styles.fullscreenBtn}`}
+                className={`${isButton2Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn} ${styles.fullscreenBtn}`}
                 onClick={fullscreenHandlePrevious}>
                 {t('buttons.back')}
               </button>
               <button
-                className={`${isButton1Active === true ? styles.activeBtn : styles.notActive} ${
-                  styles.portfolioBtn
-                } ${styles.fullscreenBtn}`}
+                className={`${isButton1Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn} ${styles.fullscreenBtn}`}
                 onClick={fullscreenHandleNext}>
                 {t('buttons.next')}
               </button>
@@ -221,40 +188,12 @@ const Gallery = () => {
         </div>
       )}
 
-      <Buttons items={options} handleNavClick={handleNavClick} active={active} />
-
+      <Buttons handelNavClick={handelNavClick} active={active} />
       <div>
         <div className={styles.portfolioGridCategory1}>
-          {galleryService &&
-            getLimitedImages(firstHalf, 2).map((item, index) => (
-              <AnimatePresence key={item.slug} custom={direction}>
-                <motion.div
-                  drag="x"
-                  dragConstraints={{ right: 0 }}
-                  variants={variants}
-                  initial="initial"
-                  animate="animate"
-                  // exit="exit"
-                  custom={direction}
-                  transition={{
-                    type: 'tween',
-                    duration: 1,
-                  }}>
-                  <Card
-                    image={item.portfolio_header_image}
-                    title={t(`portfolio.portfolio${item.portfolio_service_category.id}`)}
-                    index={index}
-                    handelImage={() => handleFullImage(item.portfolio_header_image)}
-                    alt={item.portfolio_heager_image_alt}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            ))}
-        </div>
-        <div className={styles.portfolioGridCategory2}>
-          {galleryService &&
-            getLimitedImages(secondHalf, 2).map((item, index) => (
-              <AnimatePresence key={item.slug} custom={direction}>
+        {galleryItems &&
+          getLimitedImages(firstHalf, 2).map((item, index) => (
+            <AnimatePresence key={item.id} custom={direction}>
                 <motion.div
                   variants={variants}
                   initial="initial"
@@ -265,12 +204,35 @@ const Gallery = () => {
                     duration: 1,
                   }}>
                   <Card
-                    key={item.slug}
-                    image={item.portfolio_header_image}
-                    title={t(`portfolio.portfolio${item.portfolio_service_category.id}`)}
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
                     index={index}
-                    handelImage={() => handleFullImage(item.portfolio_header_image)}
-                    alt={item.portfolio_heager_image_alt}
+                    handelImage={() => handleFullImage(item.image)}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            ))}
+        </div>
+        <div className={styles.portfolioGridCategory2}>
+        {galleryItems &&
+          getLimitedImages(secondHalf, 2).map((item, index) => (
+            <AnimatePresence key={item.id} custom={direction}>
+                <motion.div
+                  variants={variants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  custom={direction}
+                  transition={{
+                    duration: 1,
+                  }}>
+                  <Card
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
+                    index={index}
+                    handelImage={() => handleFullImage(item.image)}
                   />
                 </motion.div>
               </AnimatePresence>
@@ -278,18 +240,10 @@ const Gallery = () => {
         </div>
 
         <div className={styles.portfolioButtons}>
-          <button
-            className={`${isButton2Active === true ? styles.activeBtn : styles.notActive} ${
-              styles.portfolioBtn
-            }`}
-            onClick={handlePrevious}>
+          <button className={`${isButton2Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn}`} onClick={handlePrevious}>
             {t('buttons.back')}
           </button>
-          <button
-            className={`${isButton1Active === true ? styles.activeBtn : styles.notActive} ${
-              styles.portfolioBtn
-            }`}
-            onClick={handleNext}>
+          <button className={`${isButton1Active === true ? styles.activeBtn : styles.notActive} ${styles.portfolioBtn}`} onClick={handleNext}>
             {t('buttons.next')}
           </button>
         </div>
@@ -299,15 +253,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
-{
-  /* <motion.div className={styles.carousel}>
-            <motion.div className={styles.innerCarousel}>
-              {
-                portfolioData.map((image) => (
-                  <img src={image} alt="image" />
-                ))
-              }
-            </motion.div>
-          </motion.div> */
-}
