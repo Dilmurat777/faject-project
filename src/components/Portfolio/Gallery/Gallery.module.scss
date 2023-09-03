@@ -75,13 +75,13 @@
 }
 
 .fullscreenWrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 0 12px;
   max-height: max-content;
+  position: relative;
 }
 
 .fullscreenImage {
@@ -94,10 +94,10 @@
 
 
 .closeButton {
-  display: inline-block;
+  display: flex;
   position: absolute;
-  top: 105px;
-  right: 229px;;
+  top: -100px;
+  right: 10px;;
 
   background: none;
   line-height: 1px;
@@ -170,6 +170,10 @@
   .fullscreenImage {
     max-width: 500px;
   }
+
+  .closeButton {
+    right: 50px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -195,8 +199,8 @@
   // ******** Overlay full screen images
 
   .fullscreenImgOverlay {
-    top: 75px;
-    left: 12px;
+    top: 85px;
+    left: 15px;
     width: 94%;
     height: 89%;
     border: 2px solid #fff;
@@ -212,7 +216,7 @@
   }
 
   .closeButton {
-    top: -50px;
+    top: -55px;
     right: 12px;
   }
 
@@ -253,6 +257,6 @@
     height: 87%;
   }
   .closeButton {
-    top: -40px;
+    top: -45px;
   }
 }

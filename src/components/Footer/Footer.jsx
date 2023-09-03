@@ -7,7 +7,7 @@ import s from './Footer.module.scss';
 const Footer = () => {
   const { t, i18n } = useTranslation();
   return (
-    <div className={s.footer} id={'footer'}>
+    <section className={s.footer} id={'footer'}>
       <div className={s.container}>
         <div className={s.footerItems}>
           <div className={`${s.languages} ${s.div4}`}>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

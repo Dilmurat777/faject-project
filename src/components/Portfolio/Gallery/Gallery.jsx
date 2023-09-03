@@ -136,10 +136,10 @@ const Gallery = () => {
     <div>
       {fullscreen && (
         <div className={styles.fullscreenImgOverlay}>
+          <div className={styles.fullscreenWrapper}>
           <button className={styles.closeButton} onClick={handleCloseFullImage}>
             <AiOutlineClose />
           </button>
-          <div className={styles.fullscreenWrapper}>
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 variants={variants}

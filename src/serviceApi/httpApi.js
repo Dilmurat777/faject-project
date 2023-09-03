@@ -3,10 +3,10 @@ import configFile from "../config.json";
 
 let host = configFile.apiEndpoint
 let protocol = document.location.protocol
-let base_url =`${protocol}//${host}/api/`
+let base_url = `https://${host}/api/`
 
 const http = axios.create({
-    baseURL: base_url
+    baseURL: base_url,
 });
 
 
