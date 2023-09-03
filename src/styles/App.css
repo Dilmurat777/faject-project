@@ -3,6 +3,11 @@
 
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 98px;
 }
 
 a {

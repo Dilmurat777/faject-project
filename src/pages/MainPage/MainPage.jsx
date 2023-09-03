@@ -1,64 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import Header from "../../components/Header/Header.jsx";
-import Services from "../../components/Services/Services.jsx";
-import Portfolio from "../../components/Portfolio/Portfolio.jsx";
-import About from "../../components/About/About.jsx";
-import Counter from "../../components/Counter/Counter.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
-import Main from "../../components/Main/Main.jsx";
-import Ticker from "../../components/Ticker/Ticker.jsx";
 import { HeadHelmet } from '../../components/HeadHelmet/HeadHelmet.jsx';
-import Prices from '../../components/Prices/Prices.jsx';
+import React, { Suspense } from 'react';
+import { lazy } from 'react';
 import PropagateLoader from "react-spinners/PropagateLoader";
 
 
-// import { Suspense } from "react";
-// import Test from '../../Test/Test.jsx';
-// import { Helmet } from 'react-helmet';
-// import { useEffect } from 'react';
+// Use React.lazy for components imports
+const Main = lazy(() => import("../../components/Main/Main.jsx"));
+const Ticker = lazy(() => import("../../components/Ticker/Ticker.jsx"));
+const Services = lazy(() => import("../../components/Services/Services.jsx"));
+const Portfolio = lazy(() => import("../../components/Portfolio/Portfolio.jsx"));
+const Prices = lazy(() => import("../../components/Prices/Prices.jsx"));
+const About = lazy(() => import("../../components/About/About.jsx"));
+const Counter = lazy(() => import("../../components/Counter/Counter.jsx"));
 
 
 const MainPage = () => {
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-  }, [])
-
   return (
-    <>
-    {
-      loading ?   
-      <PropagateLoader
+    <Suspense fallback={<PropagateLoader
       color={'#9f95ff'}
-      loading={loading}
-      style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh', }}
+      loading={true}
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh', }}
       size={20}
       aria-label="Loading Spinner"
       data-testid="loader"
-    />
-    : 
-     <>
-       <HeadHelmet title='Main page' description={'Beginner friendly page for learning React Helmet.'} /> {/* write here your meta for Main page*/}
-      <Header />
+    />}>
+      <HeadHelmet title='Main page' description={'Beginner-friendly page for learning React Helmet.'} />
       <Main />
       <Ticker />
       <Services />
       <Portfolio />
-      <Prices/>
+      <Prices />
       <About />
       <Counter />
-      <Footer />
-      {/* <Test/> */}
-      {/*<CookieModal/>*/}
-      {/*<SaleModal/>*/}
-     </>
-     } 
-    </>
+    </Suspense>
   );
 };
 
-export default MainPage
+export default MainPage;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import s from './Serrvices.module.scss';
+import s from './Services.module.scss';
 import Buttons from './Buttons/Buttons.jsx';
 import Text from './Text/Text.jsx';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +46,7 @@ const Services = () => {
   }, [index, active]);
 
   return (
-    <div className={s.services}>
+    <section className={s.services}>
       <div className={s.container}>
         <div className={s.title}>{t('services.title')}</div>
         <div className={s.wrapper}>
@@ -68,7 +68,7 @@ const Services = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

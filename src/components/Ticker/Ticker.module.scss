@@ -1,6 +1,6 @@
 .ticker {
   width: 100%;
-  padding: 50px 0 66px 0;
+  margin-bottom: 66px;
   user-select: none;
 }
 
@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 1130px) {
   .ticker {
-    padding: 40px 0 56px 0;
+    margin: 40px 0 56px 0;
   }
   .tickerItem {
     font-size: 45px;
@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 768px) {
   .ticker {
-    padding: 17px 0 20px 0;
+    margin: 17px 0 20px 0;
   }
   .tickerItem {
     font-size: 35px;

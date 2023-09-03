@@ -1,5 +1,9 @@
 .prices {
-	padding: 66px 0;
+	margin-bottom: 66px;
+	background-image: linear-gradient(180deg, #040d11 30.98%, rgba(45, 52, 60, 0.38) 52.04%, #040d11 75.19%),  url('../../assets/PricesImage/price-bg2.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .container {
   max-width: 1218px;
@@ -11,30 +15,13 @@
 	display: flex;
 }
 
-.priceItems {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	gap: 60px;
-}
-
-@media (max-width: 1250px) {
-	.priceItems {
-		gap: 10px;
-	}
-}
-
 @media (max-width: 768px) {
 	.prices {
-		padding: 33px 0;
+		margin-bottom: 66px;
 		
 	}
-	// .container {
-	// 	padding: 0 0px;
-	// }
-	.priceItems {
-		flex-wrap: nowrap;
+	.container {
+		padding: 0 0px;
 	}
+	
 }

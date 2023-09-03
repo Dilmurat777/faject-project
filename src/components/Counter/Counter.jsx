@@ -26,7 +26,8 @@ const Counter = () => {
 
 
     return (
-        <CounterProvider counter={counter} setCounter={setCounter}>
+       <section className={s.counterSection}>
+         <CounterProvider counter={counter} setCounter={setCounter}>
             <div className={s.counter}>
                 <div className={s.container}>
                     {data.map((item, index) => (
@@ -41,6 +42,7 @@ const Counter = () => {
                 </div>
             </div>
         </CounterProvider>
+       </section>
     );
 };
 export default Counter;

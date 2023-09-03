@@ -2,7 +2,6 @@
   font-size: 14px;
   font-weight: 400;
   color: #fff;
-  margin-top: 326px;
   margin-bottom: 50px;
 }
 .container {
@@ -12,7 +11,7 @@
 }
 
 .homeBlog {
-  margin-top: 220px;
+  margin-top: 250px;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -42,9 +41,9 @@
 
 
 .bookButton {
-  border-radius: 32px;
+  border-radius: 22px;
   border: none;
-  background: #9f95ff;
+  background-color: #776DC3;
   padding: 18px 30px;
   font-size: 22px;
   letter-spacing: 1px;
@@ -55,9 +54,13 @@
     background: #9f95ff;
     border: none;
     color:#fff;
-    border-radius: 32px;
+    border-radius: 22px;
     opacity: 1;
   }
+}
+
+.bookButton:hover {
+  background-color: #9f95ff;
 }
 
 .homeImages {
@@ -147,7 +150,7 @@
 @media screen and (max-width: 992px) {
   .homeInfo {
     max-width: 600px;
-    margin-top: 250px;
+    margin-top: 160px;
   }
 
   .homeImages {
@@ -214,7 +217,7 @@
 
 @media screen and (max-width: 610px) {
   .home {
-    margin-top: 110px;
+    margin-top: 15px;
   }
   .homeBlog {
     margin-top: 0;
@@ -232,7 +235,7 @@
 
   .homeInfo {
     gap: 10px;
-    margin-top: 270px;
+    margin-top: 240px;
   }
 
   .homeTitle {

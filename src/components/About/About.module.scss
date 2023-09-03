@@ -1,5 +1,5 @@
 .about1 {
-  padding: 66px 0;
+  margin-bottom: 66px;
 	color: white;
 }
 
@@ -59,7 +59,7 @@
 
 @media screen and (max-width: 768px) {
 	.about1 {
-		margin: 40px 0;
+		margin-bottom: 40px;
 	}
 	.title1 {
 		font-size: 52px;
@@ -85,7 +85,7 @@
 
 @media screen and (max-width: 550px) {
 	.about1 {
-		margin: 20px 0;
+		margin-bottom: 33px;
 	}
 	.aboutItems {
 		column-gap: 18px;

@@ -1,16 +1,18 @@
 import s from './Main.module.scss';
 import { motion } from 'framer-motion';
-import img1 from '../../assets/Main/home1.png';
-import img2 from '../../assets/Main/home2.png';
-import img3 from '../../assets/Main/home3.png';
-import img4 from '../../assets/Main/home4.png';
-import PopupButton from '../Popup/PopupButton';
+import img1 from '../../assets/Main/home1.webp';
+import img2 from '../../assets/Main/home2.webp';
+import img3 from '../../assets/Main/home3.webp';
+import img4 from '../../assets/Main/home4.webp';
 import BookForm from '../BookForm/BookForm';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import PopupButton from '../Popup/PopupButton/PopupButton';
 
 const Main = () => {
   const { t, i18n } = useTranslation();
+
+
   const [animationComplete, setAnimationComplete] = useState(false);
 
   const handleAnimationComplete = () => {

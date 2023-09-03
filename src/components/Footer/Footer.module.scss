@@ -4,7 +4,7 @@
 }
 
 .footer {
-  margin: 32px 0 110px;
+  margin-bottom: 100px;
 }
 .container {
   max-width: 1218px;
@@ -48,6 +48,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .footer {
+    margin-bottom: 50px;
+  }
+
   .footerItems {
     display: grid;
     grid-template-columns: 1fr 140px;
